@@ -1,0 +1,3507 @@
+<?php
+/**
+* Template Name: Phần mềm
+* Template Post Type: service
+*/
+get_header(); ?>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --h1-font-size: 90px;
+  --h1-font-weight: 600;
+  --h1-text-transform: none;
+  --h1-font-style: normal;
+  --h1-text-decoration: none;
+  --h1-line-height: 1.05em;
+  --h1-letter-spacing: -2px;
+
+  --h2-font-size: 62px;
+  --h2-font-weight: 600;
+  --h2-line-height: 1.1em;
+  --h2-letter-spacing: -1px;
+
+  --h3-font-size: 48px;
+  --h3-font-weight: 600;
+  --h3-line-height: 1.15em;
+  --h3-letter-spacing: -1px;
+
+  --h4-font-size: 32px;
+  --h4-font-weight: 600;
+  --h4-line-height: 1.25em;
+  --h4-letter-spacing: -1px;
+
+  --h5-font-size: 24px;
+  --h5-font-weight: 500;
+  --h5-line-height: 1.35em;
+
+  --h6-font-size: 14px;
+  --h6-font-weight: 500;
+  --h6-text-transform: uppercase;
+  --h6-line-height: 1.7em;
+  --h6-letter-spacing: 1px;
+
+  --primary-font-weight: 600;
+  --secondary-font-weight: 500;
+  --text-font-size: 18px;
+  --text-font-weight: 400;
+  --text-line-height: 1.45em;
+
+  --text-secondary-font-size: 30px;
+  --text-secondary-font-weight: 400;
+  --text-secondary-line-height: 1.35em;
+
+  --accent-font-size: 17px;
+  --accent-font-weight: 600;
+  --accent-line-height: 1.55em;
+  --tertiary-font-size: 16px;
+  --tertiary-font-weight: 500;
+  --tertiary-line-height: 1.5em;
+  --meta-font-size: 15px;
+  --meta-font-weight: 500;
+  --meta-line-height: 1.6em;
+  --taxonomy-font-size: 13px;
+  --taxonomy-font-weight: 600;
+  --taxonomy-text-transform: uppercase;
+  --taxonomy-line-height: 1.55em;
+  --small-font-size: 15px;
+  --small-font-weight: 400;
+  --small-line-height: 1.6em;
+  --button-font-size: 17px;
+  --button-font-weight: 600;
+  --button-line-height: 1.65em;
+  --blockquote-font-size: 30px;
+  --blockquote-font-weight: 400;
+  --blockquote-line-height: 1.35em;
+  --b22392f-font-size: 20px;
+  --b22392f-font-weight: 500;
+  --b22392f-line-height: 1.4em;
+  --96fa749-font-family: "Patrick Hand", cursive;
+  --96fa749-font-size: 30px;
+  --96fa749-font-weight: 400;
+  --96fa749-line-height: 1.2em;
+
+  --color-primary: #5051f9;
+  --color-secondary: #111111;
+  --color-text: #545454;
+  --color-accent: #989898;
+  --color-tertiary: #787673;
+  --color-background: #fbfaf9;
+  --color-alternate: #ffffff;
+  --color-border: #eae9e7;
+  --color-ae49109: #f6f5f3;
+
+  --common-padding-top: 150px;
+  --common-padding-bottom: 150px;
+  --common-padding-right: 40px;
+  --common-padding-left: 40px;
+
+  --white-arrow-right-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%23ffffff' d='M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z'/%3E%3C/svg%3E");
+  --blur-arrow-right-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%23FFFFFFB3' d='M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z'/%3E%3C/svg%3E");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fbfaf9;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* Animation: Fade in */
+.hn-software__fade-in.animate {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation: Fade in left */
+.hn-software__fade-in-left.animate {
+  transform: translateX(-200px);
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation: Fade in right */
+.hn-software__fade-in-right.animate {
+  transform: translateX(200px);
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation: Fade in up */
+.hn-software__fade-in-up.animate {
+  transform: translateY(200px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation: Zoom in */
+.hn-software__zoom-in.animate {
+  transform: scale(0.8);
+  animation: zoomIn 0.8s ease forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation: Zoom in down */
+.hn-software__zoom-in-down.animate {
+  animation: zoomInDown 0.8s ease forwards;
+}
+
+@keyframes zoomInDown {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-40px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hn-software__main {
+  font-size: 16px;
+  font-family: 'Onest', sans-serif;
+  color: var(--color-secondary);
+}
+
+.hn-software__main h1,
+.hn-software__main h2,
+.hn-software__main h3,
+.hn-software__main h4,
+.hn-software__main h5,
+.hn-software__main h6 {
+  font-family: inherit;
+}
+
+/* H1 */
+.hn-software__main h1 {
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  text-transform: var(--h1-text-transform);
+  font-style: var(--h1-font-style);
+  text-decoration: var(--h1-text-decoration);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+/* H2 */
+.hn-software__main h2 {
+  font-size: var(--h2-font-size);
+  font-weight: var(--h2-font-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
+}
+
+/* H3 */
+.hn-software__main h3 {
+  font-size: var(--h3-font-size);
+  font-weight: var(--h3-font-weight);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
+}
+
+/* H4 */
+.hn-software__main h4 {
+  font-size: var(--h4-font-size);
+  font-weight: var(--h4-font-weight);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
+}
+
+/* H5 */
+.hn-software__main h5 {
+  font-size: var(--h5-font-size);
+  font-weight: var(--h5-font-weight);
+  line-height: var(--h5-line-height);
+}
+
+/* H6 */
+.hn-software__main h6 {
+  font-size: var(--h6-font-size);
+  font-weight: var(--h6-font-weight);
+  text-transform: var(--h6-text-transform);
+  line-height: var(--h6-line-height);
+  letter-spacing: var(--h6-letter-spacing);
+}
+
+.hn-software__main input,
+.hn-software__main button,
+.hn-software__main textarea,
+.hn-software__main select {
+  font-family: inherit;
+}
+
+.hn-software__main p {
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-weight);
+  line-height: var(--text-line-height);
+}
+
+.hn-software__main p.small-text {
+  font-size: var(--small-font-size);
+  font-weight: var(--small-font-weight);
+  line-height: var(--small-line-height);
+}
+
+.hn-software__main p.secondary-text {
+  font-size: var(--text-secondary-font-size);
+  font-weight: var(--text-secondary-font-weight);
+  line-height: var(--text-secondary-line-height);
+}
+
+.hn-software__main p.taxonomy-text {
+  font-size: var(--taxonomy-font-size);
+  line-height: var(--taxonomy-line-height);
+  text-transform: var(--taxonomy-text-transform);
+  font-weight: var(--taxonomy-font-weight);
+}
+
+.hn-software__main p.meta-text {
+  font-size: var(--meta-font-size);
+  font-weight: var(--meta-font-weight);
+  line-height: var(--meta-line-height);
+}
+
+.hn-software__section {
+  width: 100%;
+}
+
+.hn-software__section-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Button */
+.hn-software__btn {
+  --btn-background-color: #20010100;
+  width: fit-content;
+  padding: 12px 25px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--btn-background-color);
+}
+
+.hn-software__btn.reverse:hover {
+  background-color: transparent;
+  background-image: none;
+}
+
+.hn-software__btn:hover {
+  transform: scale(1.03);
+}
+
+.hn-software__btn,
+.hn-software__btn.reverse:hover {
+  box-shadow: 0px 0px 0px 2px var(--color-secondary) inset;
+  color: var(--color-secondary);
+}
+
+.hn-software__btn:hover,
+.hn-software__btn.reverse {
+  box-shadow: 0px 0px 0px 0px var(--color-secondary) inset;
+  background-color: transparent;
+  background-image: var(--gradient);
+  color: var(--color-alternate);
+}
+
+.hn-software__btn.secondary.reverse {
+  box-shadow: 0px 0px 0px 2px var(--color-alternate) inset;
+  background-image: none;
+  background-color: transparent;
+}
+
+.hn-software__btn.secondary.reverse:hover {
+  box-shadow: 0px 0px 0px 2px var(--color-primary) inset;
+  background-color: var(--color-alternate);
+}
+
+.hn-software__btn.secondary:hover {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: 0px 0px 0px 2px var(--color-alternate) inset;
+}
+
+.hn-software__btn.secondary {
+  box-shadow: 0px 0px 0px 2px var(--color-alternate) inset;
+  background: var(--color-alternate);
+}
+
+.hn-software__btn-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.hn-software__btn-icon.apple,
+.hn-software__btn.reverse:hover .hn-software__btn-icon.apple {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- License: MIT. Made by michaelampr: https://github.com/michaelampr/jam --%3E%3Csvg fill='%23000000' width='22px' height='24px' viewBox='-3.5 -2 24 24' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' class='jam jam-apple'%3E%3Cpath d='M13.623 10.627c-.025-2.533 2.066-3.748 2.159-3.808-1.175-1.72-3.005-1.955-3.657-1.982-1.557-.158-3.039.917-3.83.917-.788 0-2.008-.894-3.3-.87C3.299 4.909 1.734 5.87.86 7.39c-1.764 3.06-.452 7.595 1.267 10.077.84 1.215 1.842 2.58 3.157 2.53 1.266-.05 1.745-.819 3.276-.819 1.531 0 1.962.82 3.302.795 1.363-.026 2.226-1.239 3.06-2.457.965-1.41 1.362-2.775 1.386-2.845-.03-.013-2.658-1.02-2.684-4.045zm-2.518-7.433c.698-.847 1.169-2.022 1.04-3.194C11.14.04 9.921.67 9.2 1.515c-.647.75-1.214 1.945-1.062 3.094 1.122.088 2.268-.57 2.967-1.415z' /%3E%3C/svg%3E");
+}
+
+.hn-software__btn:hover .hn-software__btn-icon.apple,
+.hn-software__btn.reverse .hn-software__btn-icon.apple {
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- License: MIT. Made by michaelampr: https://github.com/michaelampr/jam --%3E%3Csvg fill='%23ffffff' width='22px' height='24px' viewBox='-3.5 -2 24 24' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' class='jam jam-apple'%3E%3Cpath d='M13.623 10.627c-.025-2.533 2.066-3.748 2.159-3.808-1.175-1.72-3.005-1.955-3.657-1.982-1.557-.158-3.039.917-3.83.917-.788 0-2.008-.894-3.3-.87C3.299 4.909 1.734 5.87.86 7.39c-1.764 3.06-.452 7.595 1.267 10.077.84 1.215 1.842 2.58 3.157 2.53 1.266-.05 1.745-.819 3.276-.819 1.531 0 1.962.82 3.302.795 1.363-.026 2.226-1.239 3.06-2.457.965-1.41 1.362-2.775 1.386-2.845-.03-.013-2.658-1.02-2.684-4.045zm-2.518-7.433c.698-.847 1.169-2.022 1.04-3.194C11.14.04 9.921.67 9.2 1.515c-.647.75-1.214 1.945-1.062 3.094 1.122.088 2.268-.57 2.967-1.415z' /%3E%3C/svg%3E");
+}
+
+.hn-software__btn.reverse .hn-software__btn-icon.arrow-right,
+.hn-software__btn:hover .hn-software__btn-icon.arrow-right {
+  background-image: var(--white-arrow-right-svg);
+}
+
+.hn-software__btn.reverse:hover .hn-software__btn-icon.arrow-right,
+.hn-software__btn .hn-software__btn-icon.arrow-right {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z'/%3E%3C/svg%3E");
+}
+
+.hn-software__btn-icon.google-play {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M389.6 298.3L168.9 77L449.7 238.2L389.6 298.3zM111.3 64C98.3 70.8 89.6 83.2 89.6 99.3L89.6 540.6C89.6 556.7 98.3 569.1 111.3 575.9L367.9 319.9L111.3 64zM536.5 289.6L477.6 255.5L411.9 320L477.6 384.5L537.7 350.4C555.7 336.1 555.7 303.9 536.5 289.6zM168.9 563L449.7 401.8L389.6 341.7L168.9 563z'/%3E%3C/svg%3E");
+}
+
+.hn-software__btn:hover .hn-software__btn-icon.google-play {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%23ffffff' d='M389.6 298.3L168.9 77L449.7 238.2L389.6 298.3zM111.3 64C98.3 70.8 89.6 83.2 89.6 99.3L89.6 540.6C89.6 556.7 98.3 569.1 111.3 575.9L367.9 319.9L111.3 64zM536.5 289.6L477.6 255.5L411.9 320L477.6 384.5L537.7 350.4C555.7 336.1 555.7 303.9 536.5 289.6zM168.9 563L449.7 401.8L389.6 341.7L168.9 563z'/%3E%3C/svg%3E");
+}
+
+/* Section title */
+.hn-software__section-title-wrapper {
+  width: fit-content;
+  padding: 4px 10px 2px;
+  display: flex;
+  column-gap: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  background-color: var(--color-alternate);
+}
+
+.hn-software__section-title-wrapper.transparent {
+  background-color: #ffffff00;
+  border-color: #ffffff6b;
+}
+
+.hn-software__section-title-wrapper.transparent .hn-software__section-title-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%23FFFFFF' d='M288.4 72.3C308 61.2 332 61.2 351.6 72.3L527.6 172C547.6 183.4 560 204.6 560 227.7L560 425.1C560 448.1 547.6 469.4 527.6 480.8L351.6 580.5C332 591.6 308 591.6 288.5 580.5L112.5 480.8C92.4 469.5 80 448.2 80 425.2L80 227.8C80 204.8 92.4 183.5 112.4 172.1L288.4 72.4zM166.6 219.6C157.8 216.5 147.8 219.9 142.8 228.2C137.8 236.5 139.6 246.9 146.4 253.2L149.6 255.6L299.8 345.8L299.8 494.5C299.8 505.5 308.8 514.5 319.8 514.5C330.8 514.5 339.8 505.5 339.8 494.5L339.8 345.8L490.1 255.6C499.6 249.9 502.7 237.6 497 228.2C491.3 218.8 479 215.7 469.6 221.3L319.9 311.1L170.2 221.3L166.5 219.6z'/%3E%3C/svg%3E");
+}
+
+.hn-software__section-title-wrapper.transparent .hn-software__section-title {
+  color: var(--color-alternate);
+}
+
+.hn-software__section-title-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%235051f9' d='M288.4 72.3C308 61.2 332 61.2 351.6 72.3L527.6 172C547.6 183.4 560 204.6 560 227.7L560 425.1C560 448.1 547.6 469.4 527.6 480.8L351.6 580.5C332 591.6 308 591.6 288.5 580.5L112.5 480.8C92.4 469.5 80 448.2 80 425.2L80 227.8C80 204.8 92.4 183.5 112.4 172.1L288.4 72.4zM166.6 219.6C157.8 216.5 147.8 219.9 142.8 228.2C137.8 236.5 139.6 246.9 146.4 253.2L149.6 255.6L299.8 345.8L299.8 494.5C299.8 505.5 308.8 514.5 319.8 514.5C330.8 514.5 339.8 505.5 339.8 494.5L339.8 345.8L490.1 255.6C499.6 249.9 502.7 237.6 497 228.2C491.3 218.8 479 215.7 469.6 221.3L319.9 311.1L170.2 221.3L166.5 219.6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Clarity Section */
+.hn-software__clarity-section {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-alternate);
+  background: -webkit-linear-gradient(to right, #135058, #F1F2B5);
+  background: linear-gradient(to left, #e5b2ff, #ffffff);
+}
+
+.hn-software__clarity-section .hn-software__section-inner {
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+}
+
+.hn-software__clarity-section .hn-software__introduction-wrapper {
+  padding: 40px 0 80px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hn-software__clarity-section .hn-software__introduction-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.hn-software__clarity-section .hn-software__introduction-wrapper h4 span,
+.hn-software__kind-of-user-section h2 span {
+  color: var(--color-accent);
+}
+
+.hn-software__group-btn {
+  display: flex;
+  gap: 15px;
+}
+
+.hn-software__rating-wrapper {
+  display: flex;
+  gap: 18px;
+}
+
+.hn-software__rating-star {
+  display: flex;
+  list-style: none;
+}
+
+.hn-software__rating-star-item {
+  width: 22px;
+  height: 22px;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z'/%3E%3C/svg%3E");
+}
+
+.hn-software__rating-star-item.half {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M320.1 417.6C330.1 417.6 340 419.9 349.1 424.6L423.5 462.5L410.5 380C407.3 359.8 414 339.3 428.4 324.8L487.4 265.7L404.9 252.6C384.7 249.4 367.2 236.7 357.9 218.5L319.9 144.1L319.9 417.7zM489.4 553C482.1 558.3 472.4 559.1 464.4 555L320.1 481.6L175.8 555C167.8 559.1 158.1 558.3 150.8 553C143.5 547.7 139.8 538.8 141.2 529.8L166.4 369.9L52 255.4C45.6 249 43.4 239.6 46.2 231C49 222.4 56.3 216.1 65.3 214.7L225.2 189.3L298.8 45.1C302.9 37.1 311.2 32 320.2 32C329.2 32 337.5 37.1 341.6 45.1L415 189.3L574.9 214.7C583.8 216.1 591.2 222.4 594 231C596.8 239.6 594.5 249 588.2 255.4L473.7 369.9L499 529.8C500.4 538.7 496.7 547.7 489.4 553z'/%3E%3C/svg%3E");
+}
+  
+.hn-software__rating-star-item.empty {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath d='M320.1 32C329.1 32 337.4 37.1 341.5 45.1L415 189.3L574.9 214.7C583.8 216.1 591.2 222.4 594 231C596.8 239.6 594.5 249 588.2 255.4L473.7 369.9L499 529.8C500.4 538.7 496.7 547.7 489.4 553C482.1 558.3 472.4 559.1 464.4 555L320.1 481.6L175.8 555C167.8 559.1 158.1 558.3 150.8 553C143.5 547.7 139.8 538.8 141.2 529.8L166.4 369.9L52 255.4C45.6 249 43.4 239.6 46.2 231C49 222.4 56.3 216.1 65.3 214.7L225.2 189.3L298.8 45.1C302.9 37.1 311.2 32 320.2 32zM320.1 108.8L262.3 222C258.8 228.8 252.3 233.6 244.7 234.8L119.2 254.8L209 344.7C214.4 350.1 216.9 357.8 215.7 365.4L195.9 490.9L309.2 433.3C316 429.8 324.1 429.8 331 433.3L444.3 490.9L424.5 365.4C423.3 357.8 425.8 350.1 431.2 344.7L521 254.8L395.5 234.8C387.9 233.6 381.4 228.8 377.9 222L320.1 108.8z'/%3E%3C/svg%3E");		
+}
+
+.hn-software__clarity-section .hn-software__image-wrapper {
+  flex: 1;
+  padding-top: 60px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hn-software__clarity-section .hn-software__image {
+  width: 100%;
+  height: auto;
+}
+
+/* Kind of user section */
+.hn-software__kind-of-user-section {
+  padding-top: var(--common-padding-top);
+  padding-right: var(--common-padding-right);
+  padding-bottom: var(--common-padding-bottom);
+  padding-left: var(--common-padding-left);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hn-software__kind-of-user-section .hn-software__section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.hn-software__kind-of-user-section .hn-software__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Service list */
+.hn-software__service {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.hn-software__service-item {
+  padding: 15px;
+  list-style: none;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-ae49109);
+}
+
+.hn-software__service-item-inner {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hn-software__service-item .hn-software__image-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.hn-software__image-wrapper h3 {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-alternate);
+  text-transform: capitalize;
+  z-index: 1;
+}
+
+.hn-software__service-item .hn-software__image {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+  filter: brightness(80%);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.hn-software__service-info-wrapper {
+  padding: 35px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--color-alternate);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Service title */
+.hn-software__service-info-wrapper h5 {
+  height: calc(2 * var(--h5-line-height));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* Service description */
+.hn-software__service-info-wrapper p {
+  color: var(--color-text);
+  height: calc(3 * var(--text-line-height));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.hn-software__btn.normal {
+  padding: 0;
+  box-shadow: none;
+}
+
+.hn-software__btn.normal:hover {
+  background: transparent;
+  color: var(--color-primary);
+  transform: none;
+}
+
+.hn-software__btn.normal:hover .hn-software__btn-icon.arrow-right {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3C!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--%3E%3Cpath fill='%235051f9' d='M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z'/%3E%3C/svg%3E");
+}
+
+.hn-software__service-item.secondary .hn-software__service-info-wrapper *,
+.hn-software__service-item.tertiary .hn-software__service-info-wrapper * {
+  color: var(--color-alternate);
+}
+
+.hn-software__service-item.secondary .hn-software__btn-icon.arrow-right,
+.hn-software__service-item.tertiary .hn-software__btn-icon.arrow-right {
+  background-image: var(--white-arrow-right-svg);
+}
+
+.hn-software__service-item.secondary .hn-software__service-info-wrapper {
+  background-image: url('http://homenest.tech/wp-content/uploads/2025/12/74-home-2-background-1.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+}
+
+.hn-software__service-item.tertiary .hn-software__service-info-wrapper {
+  background-color: var(--color-secondary);
+  border: none;
+}
+
+.hn-software__service-item.tertiary .hn-software__service-info-wrapper p {
+  color: #ffffffb3;
+}
+
+.hn-software__service-item.secondary .hn-software__btn:hover,
+.hn-software__service-item.tertiary .hn-software__btn:hover {
+  color: #ffffffb3;
+}
+
+.hn-software__service-item.secondary .hn-software__btn:hover .hn-software__btn-icon.arrow-right,
+.hn-software__service-item.tertiary .hn-software__btn:hover .hn-software__btn-icon.arrow-right {
+  background-image: var(--blur-arrow-right-svg);
+}
+
+/* Platform section */
+.hn-software__platform-section {
+  background-color: var(--color-alternate);
+}
+
+.hn-software__platform-section .hn-software__section-inner {
+  max-width: 100%;
+  display: flex;
+}
+
+.hn-software__platform-section .hn-software__section-child {
+  flex: 1;
+  padding-top: var(--common-padding-top);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 100px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hn-software__platform-section .hn-software__section-child:nth-child(2) {
+  background-color: var(--color-primary);
+  background-image: url('http://homenest.tech/wp-content/uploads/2025/12/74-home-2-background-2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hn-software__platform-section .hn-software__section-child-inner {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+  display: flex;
+  justify-content: center;
+}
+
+.hn-software__platform-section .hn-software__section-child-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.hn-software__platform-section h3,
+.hn-software__platform-section p {
+  text-align: center;
+}
+
+.hn-software__platform-section .hn-software__section-child:nth-child(2) h3 {
+  color: var(--color-alternate);
+}
+
+.hn-software__platform-section .hn-software__section-child:nth-child(2) p {
+  color: var(--color-background);
+}
+
+.hn-software__platform-section p {
+  color: var(--color-text);
+}
+
+.hn-software__platform-section .hn-software__section-child .hn-software__image-wrapper-inner {
+  position: relative;
+}
+
+.hn-software__platform-section .hn-software__section-child:first-child .hn-software__image-wrapper {
+  padding-left: 10%;
+}
+
+.hn-software__platform-section .hn-software__section-child:nth-child(2) .hn-software__image-wrapper {
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.hn-software__platform-section .hn-software__section-child .hn-software__image {
+  border-style: solid;
+  border-color: var(--color-secondary);
+  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+  object-fit: cover;
+}
+
+.hn-software__platform-section .hn-software__section-child:first-child .hn-software__image {
+  width: 100%;
+  height: auto;
+  border-width: 5px 0 0 5px;
+  border-top-left-radius: 20px;
+}
+
+.hn-software__platform-section .hn-software__section-child:nth-child(2) .hn-software__image {
+  max-width: 340px;
+  height: auto;
+  border-width: 5px 5px 0 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.hn-software__keep-goal-wrapper {
+  position: absolute;
+  bottom: 80px;
+  right: -232px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.hn-software__float-title {
+  position: relative;
+  animation: bobY 1s ease-in-out infinite alternate;
+}
+
+.hn-software__float-title h4 {
+  font-family: var(--96fa749-font-family);
+  font-size: var(--96fa749-font-size);
+  font-weight: var(--96fa749-font-weight);
+  line-height: var(--96fa749-line-height);
+  color: var(--color-alternate);
+}
+
+.hn-software__float-title .hn-software__float-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='41' viewBox='0 0 18 41' fill='%23ffffff'%3E%3Cpath d='M3.61061 0.23959C3.3288 -0.0639869 2.8538 -0.0816896 2.55022 0.200115C2.24697 0.481936 2.22983 0.955852 2.51148 1.25933C6.08369 5.10754 11.1131 9.94894 14.0331 15.142C15.4849 17.7242 16.3728 20.3266 16.3213 22.8727C16.2703 25.3942 15.2967 27.9385 12.8792 30.4312C10.5797 32.8022 7.76089 33.274 4.35025 34.0729C4.39549 34.0623 4.42421 34.0606 4.37665 34.0657C4.35093 34.0685 4.31259 34.0722 4.26184 34.0766C4.16039 34.0853 4.01977 34.0962 3.85372 34.107C3.52134 34.1286 3.09586 34.1505 2.68655 34.1597C2.65362 34.1604 2.62053 34.1591 2.58825 34.1597C3.1634 33.4139 3.9024 32.4529 4.45095 31.7324C4.6708 31.4437 4.86197 31.1921 5.0004 31.0079C5.06942 30.9161 5.12634 30.8389 5.16815 30.7821C5.18883 30.7539 5.20776 30.7283 5.2228 30.7071C5.22529 30.7036 5.2631 30.6516 5.29169 30.5987C5.29766 30.5876 5.31105 30.5624 5.32469 30.5298C5.32838 30.5214 5.37975 30.4075 5.38301 30.2563C5.37761 30.1491 5.28714 29.8737 5.17843 29.7255C5.0113 29.5927 4.66874 29.4909 4.52235 29.4981C4.44222 29.5145 4.31978 29.5582 4.27668 29.5797C4.25001 29.5947 4.20661 29.623 4.18939 29.6352C4.13512 29.6749 4.09661 29.7142 4.09414 29.7167C4.08214 29.7289 4.07247 29.74 4.06693 29.7462C4.04694 29.7684 4.02465 29.795 4.00714 29.8163C3.96732 29.8648 3.90726 29.9404 3.82563 30.0434C3.66096 30.2511 3.39882 30.5846 3.01844 31.072C3.01773 31.0729 3.01399 31.0776 3.00589 31.087C2.99704 31.0972 2.98548 31.1107 2.97023 31.1274C2.93942 31.1611 2.89893 31.2039 2.84966 31.2549C2.75097 31.3572 2.62522 31.4841 2.47855 31.6317C2.18796 31.9242 1.82275 32.2904 1.47094 32.6611C1.12211 33.0287 0.768811 33.4194 0.50705 33.7615C0.377819 33.9304 0.252733 34.1102 0.162185 34.2846C0.116815 34.3721 0.0699112 34.4784 0.0384076 34.5955C0.00881584 34.7054 -0.0228476 34.8819 0.0240535 35.0823C0.114505 35.4684 0.367614 35.7854 0.606504 36.023C0.859258 36.2745 1.17916 36.5175 1.52451 36.7478C2.21667 37.2093 3.10103 37.6769 3.98834 38.1115C4.87927 38.5478 5.80301 38.9645 6.57272 39.3175C7.36667 39.6817 7.95554 39.9595 8.24306 40.1369C8.59559 40.3544 9.05774 40.2456 9.27521 39.8931C9.4926 39.5407 9.38273 39.0787 9.03048 38.8612C8.64553 38.6237 7.9551 38.3015 7.19824 37.9544C6.41711 37.5961 5.51761 37.1898 4.64868 36.7643C3.89288 36.3941 3.184 36.0163 2.61258 35.6595C2.64842 35.6588 2.68428 35.6602 2.71989 35.6594C3.15606 35.6496 3.6041 35.6262 3.95154 35.6036C4.1252 35.5923 4.27617 35.5809 4.39024 35.571C4.44697 35.5662 4.49789 35.5618 4.5385 35.5574C4.5579 35.5553 4.62966 35.548 4.69235 35.5334C7.95065 34.7702 11.2848 34.2305 13.9564 31.4757C16.6122 28.7373 17.7614 25.8391 17.8208 22.9026C17.8796 19.991 16.8653 17.1195 15.3404 14.4075C12.3069 9.0123 7.08503 3.98242 3.61061 0.23959Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+}
+
+@keyframes bobY {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.hn-software__keep-goal-wrapper .hn-software__float-icon {
+  top: 20px;
+  right: -56px;
+}
+
+.hn-software__keep-goal {
+  background: var(--color-alternate);
+  padding: 30px 25px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.15);
+}
+
+.hn-software__keep-goal-item {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.hn-software__keep-goal-icon {
+  width: 23px;
+  height: 22px;
+  background-color: var(--color-secondary);
+  background-image: url("data:image/svg+xml,%3Csvg width='12px' height='12px' aria-hidden='true' class='e-font-icon-svg e-fas-check' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 6px;
+}
+
+h4.hn-software__keep-goal-title {
+  font-size: var(--text-font-size);
+  font-weight: var(--text-font-size);
+  line-height: var(--text-line-height);
+  color: var(--color-secondary);
+  width: 275px;
+}
+
+/* Demo section */
+
+.hn-software__demo-section {
+  background-color: var(--color-secondary);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+}
+
+.hn-software__demo-section .hn-software__section-inner {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  align-items: center;
+}
+
+.hn-software__demo-section h2,
+.hn-software__demo-section p {
+  text-align: center;
+}
+
+.hn-software__demo-section h2 {
+  color: var(--color-alternate);
+}
+
+.hn-software__demo-section p {
+  color: #ffffffbd;
+}
+
+.hn-software__demo-section .hn-software__wrapper {
+  margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.hn-software__video-demo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hn-software__video-demo-wrapper {
+  width: 960px;
+  aspect-ratio: 1.77777;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.hn-software__video-demo-wrapper:hover {
+  box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.15);
+}
+
+iframe.hn-software__video-demo-iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.hn-software__video-overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.85);
+  border-radius: 20px;
+}
+
+.hn-software__video-play-button {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.hn-software__video-play-button:hover {
+  cursor: pointer;
+}
+
+.hn-software__video-play-button-icon {
+  height: 80px;
+  width: 80px;
+  display: block;
+  background-size: cover;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='40' fill='%23ffffff'%3E%3C/circle%3E%3Cpath d='M50.5117 39.134C51.1784 39.5189 51.1784 40.4811 50.5117 40.866L35.5117 49.5263C34.8451 49.9112 34.0117 49.4301 34.0117 48.6603L34.0117 31.3397C34.0117 30.5699 34.8451 30.0888 35.5117 30.4737L50.5117 39.134Z' fill='%23111111'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+.hn-software__demo-section .hn-software__float-icon {
+  transform: rotate(180deg);
+  top: -24px;
+  left: -48px;
+}
+
+/* Key service section */
+.hn-software__key-service-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+}
+
+.hn-software__key-service-section .hn-software__section-inner {
+  padding-top: var(--common-padding-top);
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+  align-items: center;
+}
+
+.hn-software__key-service-section .hn-software__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.hn-software__key-service-section h2 {
+  text-align: center;
+}
+
+/* Feature list */
+
+/* --- BASE STYLES --- */
+.hn-software__feature-container {
+  width: 100%;
+}
+
+.hn-software__feature-tab {
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 10px;
+  background: var(--color-alternate);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hn-software__feature-tab .icon {
+  padding: 15px;
+  background-color: var(--color-secondary);
+  color: var(--color-alternate);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.hn-software__feature-tab:hover h4,
+.hn-software__feature-item.active .hn-software__feature-tab h4 {
+  color: var(--color-primary);
+}
+
+.hn-software__panel-content p {
+  color: var(--color-tertiary);
+}
+
+.hn-software__feature-tab:hover .icon,
+.hn-software__feature-item.active .hn-software__feature-tab .icon {
+  background-color: var(--color-primary);
+  color: var(--color-alternate);
+}
+
+/* Active, Hover Tab Style */
+.hn-software__feature-tab:hover,
+.hn-software__feature-item.active .hn-software__feature-tab {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.hn-software__feature-panel {
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--color-ae49109);
+  background-image: url('http://homenest.tech/wp-content/uploads/2025/12/74-home-2-background-4.webp');
+  background-size: cover;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.hn-software__panel-content {
+  padding: 50px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.hn-software__panel-content img {
+  max-width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.hn-software__key-service-section .hn-software__group-btn,
+.hn-software__blog-section .hn-software__group-btn {
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Meet our teams section */
+.hn-software__meet-teams-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+  margin-bottom: 225px;
+}
+
+.hn-software__meet-teams-section .hn-software__section-inner {
+  max-width: 100%;
+  padding-top: var(--common-padding-top);
+  display: flex;
+  column-gap: 80px;
+}
+
+.hn-software__meet-teams-section .hn-software__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  justify-content: center;
+}
+
+.hn-software__meet-teams-section .hn-software__group-btn {
+  gap: 20px;
+}
+
+.hn-software__team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.hn-software__team-item {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.hn-software__profile-avatar-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.hn-software__profile-avatar-wrapper:hover .hn-software__social {
+  opacity: 1;
+}
+
+.hn-software__profile-avatar-wrapper:hover img {
+  filter: brightness(50%);
+}
+.hn-software__profile-avatar-wrapper img {
+  width: 100%;
+  aspect-ratio: 300 / 391;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: filter 0.3s ease;
+}
+.hn-software__portfolio-link-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hn-software__social {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  column-gap: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hn-software__social-item {
+  list-style: none;
+  border: 1px solid #ffffff44;
+  border-radius: 10%;
+  overflow: hidden;
+  transition: all 0.3 ease;
+}
+
+.hn-software__social-item:hover a {
+  background-color: var(--color-alternate);
+  color: var(--color-secondary);
+}
+
+.hn-software__social-item a {
+  padding: 12px;
+  display: flex;
+  color: var(--color-alternate);
+  background-color: #ffffff33;
+  border-radius: 10%;
+  transition: all 0.3 ease;
+}
+
+.hn-software__profile-name a,
+.hn-software__profile-department a {
+  text-decoration: none;
+}
+
+.hn-software__profile-name a {
+  text-transform: capitalize;
+  color: var(--color-secondary);
+}
+
+.hn-software__profile-department a {
+  color: var(--color-tertiary);
+}
+
+/* Statistic section */
+.hn-software__statistic-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+}
+
+.hn-software__statistic-section .hn-software__section-inner {
+  padding-bottom: var(--common-padding-bottom);
+  display: flex;
+  flex-direction: column;
+  row-gap: 170px;
+  align-items: center;
+}
+
+.hn-software__statistic-section .hn-software__wrapper {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.hn-software__statistic-section h6 {
+  color: var(--color-tertiary);
+}
+
+.hn-software__statistic-section h3 {
+  text-align: center;
+}
+
+.hn-software__productive-speed-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.hn-software__productive-speed {
+  color: var(--color-border);
+  font-size: 400px !important;
+  text-align: center;
+}
+
+.hn-software__statistic {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.hn-software__statistic-card {
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-alternate);
+}
+
+/* Review section */
+
+.hn-software__review-section {
+  background-color: var(--color-primary);
+  background-image: url('http://homenest.tech/wp-content/uploads/2025/12/74-home-2-background-3.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hn-software__review-section h2,
+.hn-software__review-section .hn-software__wrapper p {
+  text-align: center;
+  color: var(--color-alternate);
+}
+
+.hn-software__review-section .hn-software__section-inner {
+  max-width: 100%;
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+}
+
+.hn-software__review-section .hn-software__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.hn-software__review-section .hn-software__wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+}
+
+.hn-software__review-slider {
+  width: 100%;
+  height: 100%;
+}
+
+/* .hn-software__review-slider .swiper-wrapper {
+  min-height: 500px; 
+} */
+
+.hn-software__review-slider .swiper-slide {
+  width: 50% !important;
+  min-height: 100px;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  cursor: grab;
+  background: var(--color-alternate);
+  border-radius: 20px;
+}
+
+.hn-software__review-slider .swiper-slide:active {
+  cursor: grabbing;
+}
+
+.hn-software__review-slider .hn-software__rating-star {
+  margin-bottom: 30px;
+}
+
+.hn-software__review {
+  margin-bottom: 40px;
+}
+
+.hn-software__reviewer {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+
+.hn-software__reviewer-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+}
+
+.hn-software__reviewer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hn-software__reviewer-name {
+  text-transform: capitalize;
+}
+
+.hn-software__reviewer-department {
+  color: var(--color-tertiary);
+}
+
+.hn-software__review-swiper-pagination {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.hn-software__review-swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px !important;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  opacity: 1;
+}
+
+.hn-software__review-swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--color-alternate);
+}
+
+/* Trusted by team section */
+.hn-software__trust-by-team-section {
+  background-color: var(--color-secondary);
+}
+
+.hn-software__trust-by-team-section .hn-software__section-inner {
+  max-width: 100%;
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 70px;
+}
+
+.hn-software__trust-by-team-section .hn-software__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.hn-software__trust-by-team-section .hn-software__wrapper h4,
+.hn-software__trust-by-team-section .hn-software__wrapper p {
+  text-align: center;
+}
+
+.hn-software__trust-by-team-section .hn-software__wrapper h4 {
+  color: var(--color-alternate);
+}
+
+.hn-software__trust-by-team-section .hn-software__wrapper p {
+  color: #fbfaf9ba;
+}
+
+.hn-software__trust-by-team-section .hn-software__logo-swiper {
+  width: 100%;
+}
+
+.hn-software__trust-by-team-section .hn-software__logo-swiper .swiper-slide {
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hn-software__trust-by-team-section .hn-software__logo-swiper .swiper-slide img {
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+}
+  
+.hn-software__trust-by-team-section .hn-software__logo-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.hn-software__blog-section {
+  padding-top: var(--common-padding-top);
+  padding-bottom: var(--common-padding-bottom);
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+}
+
+.hn-software__blog-section .hn-software__section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 80px;
+}
+
+.hn-software__blog-section .hn-software__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+}
+
+.hn-software__blog-section .hn-software__wrapper h2 {
+  text-align: center;
+}
+
+.hn-software__blog-section .hn-software__wrapper h2 span {
+  color: var(--color-accent);
+}
+
+.hn-software__blog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.hn-software__blog-item {
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-alternate);
+  transition: all 0.3s ease;
+}
+
+.hn-software__blog-item:hover {
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.1);
+}
+
+.hn-software__blog-image-wrapper {
+  position: relative;
+  aspect-ratio: 768 / 432;
+}
+
+.hn-software__blog-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.hn-software__blog-link-overlay {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hn-software__blog-item-inner {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.hn-software__cate-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.hn-software__blog-taxonomy {
+  display: flex;
+  align-items: center;
+}
+
+.hn-software__blog-taxonomy a {
+  padding: 4px 10px 2px;
+  text-decoration: none;
+  color: var(--color-alternate);
+  background-color: var(--color-secondary);
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hn-software__blog-taxonomy a:hover {
+  color: var(--color-alternate);
+  background-color: var(--color-primary);
+}
+
+.hn-software__blog-date {
+  color: var(--color-tertiary);
+}
+
+.hn-software__divider {
+  width: 100%;
+  /* height: 1px; */
+  background-color: transparent;
+  border-top: 1px solid var(--color-border);
+}
+
+.hn-software__blog-title a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  transition: all 0.3s ease;
+  height: calc(2 * var(--h5-line-height));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.hn-software__blog-title a:hover {
+  color: var(--color-tertiary);
+}
+
+.hn-software__blog-description {
+  color: var(--color-text);
+  height: calc(3 * var(--text-line-height));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* Marquee section */
+.hn-software__marquee-section {
+  width: 100%;
+}
+
+.hn-software__marquee-section .hn-software__section-inner {
+  padding-bottom: var(--common-padding-bottom);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.hn-software__banner-container {
+  display: flex;
+}
+
+.hn-software__banner-item {
+  display: flex;
+  column-gap: 100px;
+  padding-right: 100px;
+  list-style: none;
+  transform: all 0.5s ease;
+  align-items: center;
+}
+
+.hn-software__banner-title {
+  white-space: nowrap;
+  font-size: var(--h1-font-size) !important;
+  font-weight: var(--h1-font-weight) !important;
+  line-height: var(--h1-line-height) !important;
+  color: #98989880;
+}
+
+.hn-software__banner-image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Potential section */
+.hn-software__potential-section {
+  padding-top: 0;
+  padding-bottom: var(--common-padding-bottom);
+  padding-right: var(--common-padding-right);
+  padding-left: var(--common-padding-left);
+}
+
+.hn-software__potential-section .hn-software__section-inner {
+  min-height: 640px;
+  display: flex;
+  background-color: var(--color-alternate);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.hn-software__potential-section .hn-software__wrapper {
+  width: 60%;
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  justify-content: center;
+}
+
+.hn-software__potential-image-wrapper {
+  width: 40%;
+}
+
+.hn-software__potential-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Responsive: Desktop and bigger devide (min width 1601px) */
+@media (min-width: 1601px) {
+  .hn-software__clarity-section .hn-software__introduction-wrapper {
+    padding: 110px 0 80px 150px;
+  }
+}
+
+/* Resposive: Tablet and smaller devide (max width 1180px) */
+@media (max-width: 1180px) {
+  :root {
+    --text-font-size: 17px;
+    --accent-font-size: 16px;
+    --tertiary-font-size: 15px;
+    --meta-font-size: 14px;
+    --taxonomy-font-size: 12px;
+    --small-font-size: 14px;
+    --text-secondary-font-size: 28px;
+    --h1-font-size: 60px;
+    --h2-font-size: 48px;
+    --h3-font-size: 36px;
+    --h4-font-size: 28px;
+    --h5-font-size: 22px;
+    --h6-font-size: 13px;
+    --button-font-size: 16px;
+    --blockquote-font-size: 28px;
+    --b22392f-font-size: 19px;
+    --96fa749-font-size: 24px;
+    --common-padding-top: 100px;
+    --common-padding-bottom: 100px;
+    --common-padding-right: 30px;
+    --common-padding-left: 30px;
+  }
+
+  .hn-software__clarity-section .hn-software__section-inner {
+    flex-direction: column;
+  }
+
+  .hn-software__clarity-section .hn-software__introduction-wrapper {
+    padding: 60px 30px 30px 30px;
+  }
+
+  .hn-software__clarity-section .hn-software__image-wrapper {
+    padding-top: 0px;
+  }
+
+  /* Service section */
+  .hn-software__kind-of-user-section .hn-software__section-inner {
+    gap: 60px;
+  }
+
+  .hn-software__kind-of-user-section .hn-software__service {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hn-software__service-item .hn-software__image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hn-software__service-item .hn-software__image {
+    max-width: 768px;
+  }
+
+  /* Platform section */
+  .hn-software__platform-section .hn-software__section-inner {
+    flex-direction: column;
+  }
+
+  .hn-software__platform-section .hn-software__section-child {
+    gap: 80px;
+  }
+
+  .hn-software__platform-section .hn-software__section-child:first-child .hn-software__image-wrapper {
+    width: fit-content;
+    align-self: flex-end;
+    padding-left: 30px;
+  }
+
+  .hn-software__platform-section .hn-software__section-child:nth-child(2) .hn-software__image-wrapper {
+    padding-right: 30%;
+  }
+
+  /* Demo section */
+  .hn-software__video-demo-container {
+    width: 100%;
+  }
+
+  .hn-software__demo-section .hn-software__section-inner {
+    padding-top: var(--common-padding-top);
+    padding-bottom: var(--common-padding-bottom);
+    padding-right: 0;
+    padding-left: 0;
+    row-gap: 60px;
+  }
+
+  .hn-software__video-demo-wrapper {
+    width: 100%;
+  }
+
+  .hn-software__video-demo-wrapper {
+    width: 100% !important;
+  }
+
+  .hn-software__demo-section .hn-software__wrapper {
+    margin-bottom: 0;
+  }
+
+  /* Key service section */
+  /* Feature list */
+  .hn-software__feature-container {
+    display: block;
+  }
+
+  .hn-software__feature-item {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .hn-software__feature-panel {
+    display: none;
+  }
+
+  /* Khi Active trên mobile thì hiện ngay bên dưới */
+  .hn-software__feature-item.active .hn-software__feature-panel {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hn-software__key-service-section .hn-software__section-inner {
+    row-gap: 60px;
+  }
+
+  .hn-software__panel-content {
+    padding: 40px 40px;
+  }
+
+  /* Meet our teams section */
+  .hn-software__meet-teams-section {
+    margin-bottom: 175px;
+  }
+
+  .hn-software__meet-teams-section .hn-software__section-inner {
+    flex-direction: column;
+    row-gap: 60px;
+  }
+
+  .hn-software__meet-teams-section .hn-software__wrapper {
+    width: 100% !important;
+  }
+
+  .hn-software__team {
+    width: 100% !important;
+    column-gap: 20px;
+  }
+
+  .hn-software__team-slider {
+    width: 100%;
+  }
+
+  .hn-software__social {
+    opacity: 1;
+  }
+
+  .hn-software__profile-avatar-wrapper img {
+    filter: brightness(50%);
+  }
+
+  /* Statistic section */
+  .hn-software__statistic-section .hn-software__section-inner {
+    row-gap: 60px;
+  }
+  
+  .hn-software__productive-speed {
+  font-size: 164px !important;	
+  }
+
+
+  /* Review section */
+  .hn-software__review-section .hn-software__section-inner {
+    padding-top: var(--common-padding-top);
+    padding-bottom: var(--common-padding-bottom);
+    padding-right: var(--common-padding-right);
+    padding-left: var(--common-padding-left);
+  }
+
+  .hn-software__review-section .hn-software__wrapper {
+    padding: 0px;
+  }
+  .hn-software__review-slider .swiper-slide {
+    width: 100% !important;
+    padding: 60px 50px;
+  }
+
+  /* Trust by team section */
+  .hn-software__trust-by-team-section .hn-software__section-inner {
+    padding-top: var(--common-padding-top);
+    padding-bottom: var(--common-padding-bottom);
+    padding-right: var(--common-padding-right);
+    padding-left: var(--common-padding-left);
+    row-gap: 50px;
+  }
+
+  .hn-software__trust-by-team-section .hn-software__logo-swiper .swiper-slide {
+    padding: 0 20px;
+  }
+  
+  /* Blog section */
+  .hn-software__blog-section .hn-software__section-inner {
+    row-gap: 60px;
+  }
+
+  .hn-software__blog {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Potential service */
+  .hn-software__potential-section h2,
+  .hn-software__potential-section p {
+    text-align: center;
+  }
+
+  .hn-software__potential-section .hn-software__section-inner {
+    min-height: unset;
+  }
+
+  .hn-software__potential-image-wrapper {
+    display: none;
+  }
+
+  .hn-software__potential-section .hn-software__wrapper {
+    width: 100%;
+    align-items: center;
+    padding: 50px 30px;
+  }
+}
+
+/* Responsive: Mobile (max-width 767px) */
+@media (max-width: 767px) {
+  :root {
+    --text-font-size: 16px;
+    --accent-font-size: 15px;
+    --tertiary-font-size: 14px;
+    --meta-font-size: 13px;
+    --small-font-size: 13px;
+    --text-secondary-font-size: 22px;
+    --h1-font-size: 42px;
+    --h2-font-size: 36px;
+    --h3-font-size: 28px;
+    --h4-font-size: 24px;
+    --h5-font-size: 18px;
+    --h6-font-size: 12px;
+    --button-font-size: 14px;
+    --blockquote-font-size: 22px;
+    --b22392f-font-size: 18px;
+    --96fa749-font-size: 21px;
+    --common-padding-top: 80px;
+    --common-padding-bottom: 80px;
+    --common-padding-right: 20px;
+    --common-padding-left: 20px;
+  }
+
+  .hn-software__clarity-section .hn-software__introduction-wrapper {
+    padding: 30px 20px 20px 20px;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hn-software__clarity-section .hn-software__introduction-inner {
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hn-software__group-btn {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hn-software__rating-wrapper {
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .hn-software__rating-wrapper .small-text,
+  .hn-software__clarity-section h4,
+  .hn-software__clarity-section h1 {
+    text-align: center;
+  }
+
+  /* Service section */
+  .hn-software__service {
+    gap: 20px;
+  }
+
+  .hn-software__service-item .hn-software__image {
+    height: 260px;
+  }
+
+  .hn-software__service-info-wrapper {
+    padding: 25px 25px;
+  }
+
+  /* Platform section */
+  .hn-software__platform-section .hn-software__section-child {
+    gap: 60px;
+  }
+
+  .hn-software__platform-section .hn-software__section-child-inner {
+    padding: 0 20px;
+  }
+
+  .hn-software__platform-section .hn-software__section-child:nth-child(2) .hn-software__image {
+    width: 100%;
+  }
+
+  .hn-software__platform-section .hn-software__section-child:nth-child(2) .hn-software__image-wrapper {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .hn-software__keep-goal-wrapper {
+    display: none;
+  }
+
+  /* Demo section */
+  .hn-software__demo-section .hn-software__section-inner {
+    row-gap: 50px;
+  }
+
+  .hn-software__demo-section .hn-software__float-title {
+    padding-left: 15px;
+  }
+
+  .hn-software__demo-section .hn-software__float-icon {
+    left: -40px;
+  }
+
+  /* Key services section */
+  /* Feature list */
+  .hn-software__feature-tab {
+    padding: 20px;
+  }
+
+  .hn-software__panel-content {
+    padding: 40px 20px 30px;
+  }
+
+  .hn-software__key-service-section .hn-software__section-inner {
+    row-gap: 40px;
+  }
+
+  .hn-software__key-service-section .hn-software__group-btn,
+  .hn-software__blog-section .hn-software__group-btn {
+    gap: 10px;
+  }
+
+  .hn-software__key-service-section .hn-software__group-btn h5,
+  .hn-software__blog-section .hn-software__group-btn h5 {
+    text-align: center;
+  }
+
+  /* Meet our teams section */
+  .hn-software__meet-teams-section {
+    margin-bottom: 75px;
+  }
+  .hn-software__meet-teams-section .hn-software__section-inner {
+    row-gap: 50px;
+  }
+
+  .hn-software__meet-teams-section h2 {
+    text-align: center;
+  }
+
+  .hn-software__meet-teams-section .hn-software__wrapper h5 {
+    text-align: center;
+  }
+
+  .hn-software__meet-teams-section .hn-software__group-btn {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .hn-software__team {
+    display: none;
+    /* grid-template-columns: repeat(1, 1fr); */
+  }
+
+  /* Statistic Section */
+  .hn-software__statistic-section .hn-software__section-inner {
+    row-gap: 50px;
+  }
+
+  .hn-software__productive-speed {
+    display: none;
+  }
+
+  .hn-software__statistic {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hn-software__statistic-card {
+    min-height: 150px;
+  }
+
+  /* Review section */
+  .hn-software__review-section .hn-software__section-inner {
+    row-gap: 50px;
+  }
+
+  .hn-software__review-slider .swiper-slide {
+    padding: 40px 30px;
+  }
+
+  /* Blog section */
+  .hn-software__blog-section .hn-software__section-inner {
+    row-gap: 50px;
+  }
+
+  .hn-software__blog-item-inner {
+    padding: 30px 20px;
+  }
+}
+
+/* Responsive: Small phone portrait (max-width: 576px) */
+@media (max-width: 576px) {
+  .hn-software__btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Responsive: Tablet (min-width: 768px) and (max-width: 1180px) */
+@media (min-width: 768px) and (max-width: 1180px) {
+  .hn-software__kind-of-user-section .hn-software__wrapper {
+    width: 100% !important;
+  }
+}
+
+/* Responsive: Mobile and bigger device (min-width: 768px) */
+@media (min-width: 768px) {
+  .hn-software__clarity-section .hn-software__introduction-inner {
+    width: 660px;
+  }
+
+  .hn-software__kind-of-user-section .hn-software__wrapper {
+    width: 1080px;
+  }
+
+  .hn-software__platform-section .hn-software__section-child-wrapper {
+    width: 530px;
+  }
+
+  .hn-software__demo-section .hn-software__wrapper {
+    width: 750px;
+  }
+
+  .hn-software__video-demo-wrapper {
+    width: 960px;
+  }
+
+  .hn-software__key-service-section .hn-software__wrapper {
+    width: 760px;
+  }
+
+  .hn-software__meet-teams-section .hn-software__section-inner {
+    width: 1520px;
+  }
+
+  /* Meet our teams section */
+  .hn-software__meet-teams-section .hn-software__wrapper {
+    width: 33.3333%;
+  }
+
+  .hn-software__team {
+    width: 66.6667%;
+  }
+
+  .hn-software__team-slider {
+    display: none !important;
+  }
+
+  /* Statistic section */
+  .hn-software__statistic-section .hn-software__wrapper {
+    width: 860px;
+  }
+
+  /* Review section */
+  .hn-software__review-section .hn-software__wrapper-inner {
+    width: 750px;
+  }
+
+  /* Trust by team section */
+  .hn-software__trust-by-team-section .hn-software__wrapper {
+    max-width: 1720px;
+  }
+
+  /* Blog section */
+  .hn-software__blog-section .hn-software__wrapper {
+    width: 760px;
+  }
+}
+
+/* Responsive: Desktop and bigger devices */
+@media (min-width: 1180px) {
+  /* Feature list */
+  .hn-software__feature-container {
+    display: grid;
+    /* Cột 1: Menu (30%), Cột 2: Nội dung (70%) */
+    grid-template-columns: 40% 1fr;
+    column-gap: 80px;
+    align-items: start;
+    position: relative;
+    min-height: 500px; /* Đảm bảo chiều cao cho stack */
+  }
+
+  /* display: contents giúp các con của .feature-item trở thành con trực tiếp của Grid Container
+      Điều này giúp ta tách nút bấm và nội dung ra 2 cột khác nhau dù HTML chung cha */
+  .hn-software__feature-item {
+    display: contents;
+  }
+
+  .hn-software__feature-tab {
+    grid-column: 1 / 2; /* Nằm cột trái */
+    margin-bottom: 15px;
+  }
+
+  /* Style cho Panel bên phải (Stack) */
+  .hn-software__feature-panel {
+    grid-column: 2 / 3;
+    grid-row: 1 / 10;
+    height: auto;
+    position: relative;
+    z-index: 1;
+
+    /* TRẠNG THÁI ẨN (Mặc định) */
+    /* 1. Opacity = 0: Trong suốt */
+    opacity: 0;
+    /* 2. Visibility hidden: Không tương tác được */
+    visibility: hidden;
+    /* 3. Dịch xuống 60px: Để lát nữa transition về 0 nó sẽ tạo hiệu ứng TRƯỢT LÊN */
+    transform: translateY(60px) scale(0.96);
+
+    /* Transition mượt mà: */
+    /* Khi ẩn đi (trượt xuống), ta dùng ease-in để nó tụt nhanh */
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in, visibility 0.4s;
+
+    /* Ngăn chặn bấm nhầm vào panel đang ẩn */
+    pointer-events: none;
+  }
+
+  /* Z-Index Logic (Càng về sau càng nằm trên) */
+  .hn-software__feature-item:nth-child(1) .hn-software__feature-panel {
+    z-index: 10;
+  }
+  .hn-software__feature-item:nth-child(2) .hn-software__feature-panel {
+    z-index: 20;
+  }
+  .hn-software__feature-item:nth-child(3) .hn-software__feature-panel {
+    z-index: 30;
+  }
+  .hn-software__feature-item:nth-child(4) .hn-software__feature-panel {
+    z-index: 40;
+  }
+
+  /* TRẠNG THÁI HIỆN (Stacked) */
+  /* Khi class .stacked được thêm vào bởi JS */
+  .hn-software__feature-item.stacked .hn-software__feature-panel {
+    /* 1. Hiện lên */
+    opacity: 1;
+    visibility: visible;
+    /* 2. Về vị trí 0: Từ 60px chạy về 0px => Hiệu ứng TRƯỢT LÊN */
+    transform: translateY(0) scale(1);
+
+    /* Khi hiện ra (trượt lên), ta dùng ease-out để nó dừng lại nhẹ nhàng */
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Cho phép tương tác */
+    pointer-events: auto;
+  }
+}
+
+</style>
+</head>
+  <body>
+    <main class="hn-software__main">
+      <!-- Clarity section -->
+      <section class="hn-software__section hn-software__clarity-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__introduction-wrapper">
+            <div class="hn-software__introduction-inner">
+              <!-- Section title -->
+              <div class="hn-software__section-title-wrapper hn-software__fade-in animate-on-scroll">
+                <i class="hn-software__section-title-icon"></i>
+                <h6 class="hn-software__section-title">Dịch vụ thiết kế phần mềm</h6>
+              </div>
+              <h1 class="hn-software__fade-in-up animate-on-scroll">Dịch vụ thiết kế phần mềm chuyên nghiệp</h1>
+              <h4 class="hn-software__fade-in-up animate-on-scroll">
+                <span>HomeNest Tech – </span>Điểm tựa công nghệ cho doanh nghiệp vươn xa.
+              </h4>
+              <div class="hn-software__group-btn">
+                <!-- Button reverse -->
+                <div class="hn-software__btn-wrapper">
+                  <a href="https://homenest.tech/about-us/"
+                    class="hn-software__btn reverse hn-software__zoom-in animate-on-scroll">
+                    Tìm hiểu thêm
+                    <i class="hn-software__btn-icon arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Rating wrapper -->
+            <div class="hn-software__rating-wrapper">
+              <ul class="hn-software__rating-star hn-software__fade-in-left animate-on-scroll">
+                <li class="hn-software__rating-star-item"></li>
+                <li class="hn-software__rating-star-item"></li>
+                <li class="hn-software__rating-star-item"></li>
+                <li class="hn-software__rating-star-item"></li>
+                <li class="hn-software__rating-star-item"></li>
+              </ul>
+      
+              <p class="small-text hn-software__fade-in-right animate-on-scroll">1,000+ Đánh giá tích cực từ khách hàng</p>
+            </div>
+          </div>
+          <div class="hn-software__image-wrapper">
+            <img src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-1-1.webp" alt="Hn software"
+              class="hn-software__image hn-software__fade-in animate-on-scroll" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Kind of user section -->
+      <section class="hn-software__section hn-software__kind-of-user-section">
+        <div class="hn-software__section-inner">
+          <!-- Section title -->
+          <div class="hn-software__wrapper">
+            <div class="hn-software__section-title-wrapper hn-software__zoom-in animate-on-scroll">
+              <i class="hn-software__section-title-icon"></i>
+              <h6 class="hn-software__section-title">Phần mềm dành cho ai?</h6>
+            </div>
+            <h2 class="hn-software__fade-in-up animate-on-scroll">
+            Hệ thống linh hoạt theo đặc thù kinh doanh, đảm bảo hiệu suất tối đa<span> trong mọi giai đoạn. </span>
+            </h2>
+          </div>
+          <ul class="hn-software__service">
+            <!-- Item 1 -->
+            <li class="hn-software__service-item hn-software__fade-in-up animate-on-scroll">
+              <article class="hn-software__service-item-inner">
+                <div class="hn-software__image-wrapper hn-software__fade-in-up animate-on-scroll">
+                  <h3 class="hn-software__fade-in animate-on-scroll">Start-up</h3>
+                  <img
+                    class="hn-software__image hn-software__fade-in-up animate-on-scroll"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-2-tablet-1024x633-1.webp"
+                    alt="Student"
+                  />
+                </div>
+                <div class="hn-software__service-info-wrapper">
+                  <h5 class="hn-software__fade-in-up animate-on-scroll">Giải pháp phần mềm cho Start-up</h5>
+                  <p class="hn-software__fade-in-up animate-on-scroll">
+                    Giúp tự động hóa quy trình, giảm tải thao tác thủ công và loại bỏ sự rời rạc trong quản lý.
+                  </p>
+                  <a href="#" class="hn-software__btn normal hn-software__fade-in-up animate-on-scroll"
+                    >Tìm hiểu thêm<i class="hn-software__btn-icon arrow-right"></i
+                  ></a>
+                </div>
+              </article>
+            </li>
+            <!-- Item 2 -->
+            <li class="hn-software__service-item secondary hn-software__fade-in-up animate-on-scroll">
+              <article class="hn-software__service-item-inner">
+                <div class="hn-software__image-wrapper">
+                  <h3 class="hn-software__fade-in animate-on-scroll">SMEs</h3>
+                  <img
+                    class="hn-software__image hn-software__fade-in-up animate-on-scroll"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-3-tablet-1024x633-1.webp"
+                    alt="Startups"
+                  />
+                </div>
+                <div class="hn-software__service-info-wrapper">
+                  <h5 class="hn-software__fade-in-up animate-on-scroll">Giải pháp phần mềm cho SMEs</h5>
+                  <p class="hn-software__fade-in-up animate-on-scroll">
+                    Đáp ứng nhu cầu tự động hóa quy trình, giảm tải thao tác thủ công và loại bỏ sự rời rạc trong quản lý.
+                  </p>
+                  <a href="#" class="hn-software__btn normal hn-software__fade-in-up animate-on-scroll"
+                    >Tìm hiểu thêm<i class="hn-software__btn-icon arrow-right"></i
+                  ></a>
+                </div>
+              </article>
+            </li>
+            <!-- Item 3 -->
+            <li class="hn-software__service-item tertiary hn-software__fade-in-up animate-on-scroll">
+              <article class="hn-software__service-item-inner">
+                <div class="hn-software__image-wrapper">
+                  <h3 class="hn-software__fade-in animate-on-scroll">Enterprise</h3>
+                  <img
+                    class="hn-software__image hn-software__fade-in-up animate-on-scroll"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-4-tablet-1024x633-1.webp"
+                    alt="Large teams"
+                  />
+                </div>
+                <div class="hn-software__service-info-wrapper">
+                  <h5 class="hn-software__fade-in-up animate-on-scroll">
+                    Giải pháp phần mềm cho các tập đoàn lớn
+                  </h5>
+                  <p class="hn-software__fade-in-up animate-on-scroll">
+                    Đáp ứng hệ thống vận hành phức tạp, tính bảo mật cao, khả năng xử lý Big Data và tích hợp đa nền tảng.
+                  </p>
+                  <a href="#" class="hn-software__btn normal hn-software__fade-in-up animate-on-scroll"
+                    >Tìm hiểu thêm<i class="hn-software__btn-icon arrow-right"></i
+                  ></a>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Platform section -->
+      <section class="hn-software__section hn-software__platform-section">
+        <div class="hn-software__section-inner">
+          <!-- Section child 1 -->
+          <div class="hn-software__section-child">
+            <div class="hn-software__section-child-inner">
+              <div class="hn-software__section-child-wrapper">
+                <div class="hn-software__section-title-wrapper hn-software__zoom-in animate-on-scroll">
+                  <i class="hn-software__section-title-icon"></i>
+                  <h6 class="hn-software__section-title">Về dịch vụ</h6>
+                </div>
+                <h3 class="hn-software__fade-in-up animate-on-scroll">Dịch vụ thiết kế phần mềm chuyên nghiệp</h3>
+                <p class="hn-software__fade-in-up animate-on-scroll">
+                  Tại HomeNest Tech chúng tôi không chỉ cung cấp một phần mềm, chúng tôi cung cấp giải pháp tối ưu năng suất và tiết kiệm và tăng khả năng tự động hóa cho doanh nghiệp.
+                </p>
+              </div>
+            </div>
+            <div class="hn-software__image-wrapper">
+              <img
+                class="hn-software__image hn-software__fade-in-up animate-on-scroll"
+                src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-5-1-768x466-1.webp"
+                alt="Multi Devices"
+              />
+            </div>
+          </div>
+          <!-- Section child 2 -->
+          <div class="hn-software__section-child">
+            <div class="hn-software__section-child-inner">
+              <div class="hn-software__section-child-wrapper">
+                <div class="hn-software__section-title-wrapper transparent hn-software__zoom-in animate-on-scroll">
+                  <i class="hn-software__section-title-icon"></i>
+                  <h6 class="hn-software__section-title">Về chính sách</h6>
+                </div>
+                <h3 class="hn-software__fade-in-up animate-on-scroll">Chính sách minh bạch và rõ ràng</h3>
+                <p class="hn-software__fade-in-up animate-on-scroll">
+                  Đến với HomeNest Tech, bạn sẽ được cung cấp thêm các chính sách dài hạn, bảo hành, hỗ trợ, bảo dưỡng đảm bảo đồng hành cùng doanh nghiệp trên chặn đường dài.
+                </p>
+              </div>
+            </div>
+            <div class="hn-software__image-wrapper">
+              <div class="hn-software__image-wrapper-inner">
+                <img
+                  class="hn-software__image hn-software__fade-in-up animate-on-scroll"
+                  src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-6-1.webp"
+                  alt="Mobile devide"
+                />
+                <div class="hn-software__keep-goal-wrapper hn-software__fade-in animate-on-scroll">
+                  <div class="hn-software__header-title-wrapper hn-software__float-title">
+                    <h4 class="hn-software__header-title">Lợi ích khi sử dụng dịch vụ tại HomeNest</h4>
+                    <i class="hn-software__float-icon"></i>
+                  </div>
+                  <ul class="hn-software__keep-goal">
+                    <li class="hn-software__keep-goal-item">
+                      <i class="hn-software__keep-goal-icon"></i>
+                      <h4 class="hn-software__keep-goal-title">Chính sách bảo hành rõ ràng</h4>
+                    </li>
+                    <li class="hn-software__keep-goal-item">
+                      <i class="hn-software__keep-goal-icon"></i>
+                      <h4 class="hn-software__keep-goal-title">Chính sách giá minh bạch</h4>
+                    </li>
+                    <li class="hn-software__keep-goal-item">
+                      <i class="hn-software__keep-goal-icon"></i>
+                      <h4 class="hn-software__keep-goal-title">Hỗ trợ 24/7</h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Demo section -->
+      <section class="hn-software__section hn-software__demo-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <h2 class="hn-software__fade-in-up animate-on-scroll">Khả năng mở rộng và tích hợp không giới hạn</h2>
+            <p class="hn-software__fade-in-up animate-on-scroll">
+              Đến với HomeNest Tech bạn sẽ được thiết kế một phần mềm chất lượng, mà con dễ dàng thích nghi với tốc độ phát triển nhanh chóng của doanh nghiệp.
+            </p>
+          </div>
+          <div class="hn-software__video-demo-container hn-software__fade-in-up animate-on-scroll">
+            <div class="hn-software__video-demo-wrapper">
+              <iframe
+                width="960"
+                height="540"
+                class="hn-software__video-demo-iframe"
+                src="https://www.youtube.com/embed/1BI-5EPZp88"
+                title="Your Way First WordPress Theme for Real Social Media Bloggers"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <img
+                class="hn-software__video-overlay-image"
+                src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-7-1024x597-1.webp"
+                alt="Video overlate"
+              />
+              <button type="button" class="hn-software__video-play-button">
+                <i class="hn-software__video-play-button-icon"></i>
+              </button>
+            </div>
+            <div class="hn-software__header-title-wrapper hn-software__float-title">
+              <h4 class="hn-software__header-title">Xem HomeNest hoạt động</h4>
+              <i class="hn-software__float-icon"></i>
+            </div>
+          </div>
+          <div class="hn-software__group-btn">
+            <!-- Button -->
+            <a href="https://homenest.tech/contact/" class="hn-software__btn secondary reverse hn-software__zoom-in animate-on-scroll">
+              Liên hệ ngay
+              <i class="hn-software__btn-icon arrow-right"></i>
+            </a>
+
+            <!-- Button reverse -->
+            <a href="https://homenest.tech/ourservices/" class="hn-software__btn secondary hn-software__zoom-in animate-on-scroll">Tham khảo thêm</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key service section -->
+      <section class="hn-software__section hn-software__key-service-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <div class="hn-software__section-title-wrapper hn-software__zoom-in animate-on-scroll">
+              <i class="hn-software__section-title-icon"></i>
+              <h6 class="hn-software__section-title">Các phần mềm nổi bật</h6>
+            </div>
+            <h2 class="hn-software__fade-in-up animate-on-scroll">Các phần mềm phổ biến được khách hàng quan tâm</h2>
+          </div>
+          <div class="hn-software__feature-container hn-software__fade-in-up animate-on-scroll">
+            <!-- Item 1 -->
+            <div class="hn-software__feature-item active" data-index="0">
+              <button class="hn-software__feature-tab">
+                <span class="icon"
+                  ><svg width="28px" height="28px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 2.5C0 1.67157 0.671573 1 1.5 1H13.5C14.3284 1 15 1.67157 15 2.5V12.5C15 13.3284 14.3284 14 13.5 14H1.5C0.671573 14 0 13.3284 0 12.5V2.5ZM5.79293 7.50001L3.14648 4.85356L3.85359 4.14645L7.20714 7.50001L3.85359 10.8536L3.14648 10.1465L5.79293 7.50001ZM12 11H8V10H12V11Z"
+                    />
+                  </svg>
+                </span>
+                <h4>CRM</h4>
+              </button>
+              <div class="hn-software__feature-panel">
+                <div class="hn-software__panel-content">
+                  <h4>CRM</h4>
+                  <img
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-8-2.webp"
+                    alt="Smart Automation"
+                  />
+                  <p>Quản lý dữ liệu khách hàng tập trung 360 độ. Tối ưu hóa phễu bán hàng và chăm sóc tự động để tăng tối đa tỷ lệ chốt đơn.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="hn-software__feature-item" data-index="1">
+              <button class="hn-software__feature-tab">
+                <span class="icon"
+                  ><svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      fill="currentColor"
+                      d="M295.4 37L310.2 73.8L347 88.6C350 89.8 352 92.8 352 96C352 99.2 350 102.2 347 103.4L310.2 118.2L295.4 155C294.2 158 291.2 160 288 160C284.8 160 281.8 158 280.6 155L265.8 118.2L229 103.4C226 102.2 224 99.2 224 96C224 92.8 226 89.8 229 88.6L265.8 73.8L280.6 37C281.8 34 284.8 32 288 32C291.2 32 294.2 34 295.4 37zM142.7 105.7L164.2 155.8L214.3 177.3C220.2 179.8 224 185.6 224 192C224 198.4 220.2 204.2 214.3 206.7L164.2 228.2L142.7 278.3C140.2 284.2 134.4 288 128 288C121.6 288 115.8 284.2 113.3 278.3L91.8 228.2L41.7 206.7C35.8 204.2 32 198.4 32 192C32 185.6 35.8 179.8 41.7 177.3L91.8 155.8L113.3 105.7C115.8 99.8 121.6 96 128 96C134.4 96 140.2 99.8 142.7 105.7zM496 368C502.4 368 508.2 371.8 510.7 377.7L532.2 427.8L582.3 449.3C588.2 451.8 592 457.6 592 464C592 470.4 588.2 476.2 582.3 478.7L532.2 500.2L510.7 550.3C508.2 556.2 502.4 560 496 560C489.6 560 483.8 556.2 481.3 550.3L459.8 500.2L409.7 478.7C403.8 476.2 400 470.4 400 464C400 457.6 403.8 451.8 409.7 449.3L459.8 427.8L481.3 377.7C483.8 371.8 489.6 368 496 368zM492 64C503 64 513.6 68.4 521.5 76.2L563.8 118.5C571.6 126.4 576 137 576 148C576 159 571.6 169.6 563.8 177.5L475.6 265.7L374.3 164.4L462.5 76.2C470.4 68.4 481 64 492 64zM76.2 462.5L340.4 198.3L441.7 299.6L177.5 563.8C169.6 571.6 159 576 148 576C137 576 126.4 571.6 118.5 563.8L76.2 521.5C68.4 513.6 64 503 64 492C64 481 68.4 470.4 76.2 462.5z"
+                    />
+                  </svg>
+                </span>
+                <h4>HRM/HRIS</h4>
+              </button>
+              <div class="hn-software__feature-panel">
+                <div class="hn-software__panel-content">
+                  <h4>HRM/HRIS</h4>
+                  <img src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2.webp" alt="Custom Workflows" />
+                  <p>Số hóa toàn diện quy trình tuyển dụng, chấm công và tính lương không sai sót. Xây dựng cơ chế đánh giá minh bạch giúp thu hút và giữ chân nhân tài.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="hn-software__feature-item" data-index="2">
+              <button class="hn-software__feature-tab">
+                <span class="icon"
+                  ><svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      fill="currentColor"
+                      d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"
+                    />
+                  </svg>
+                </span>
+                <h4>Phần mềm quản lý dự án</h4>
+              </button>
+              <div class="hn-software__feature-panel">
+                <div class="hn-software__panel-content">
+                  <h4>Phần mềm quản lý dự án</h4>
+                  <img
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-8-3.webp"
+                    alt="Instant Synchronization"
+                  />
+                  <p>Kiểm soát tiến độ theo thời gian thực (Real-time) trên mọi thiết bị. Phân việc rõ ràng, báo cáo trực quan, đảm bảo 100% dự án về đích đúng hạn.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="hn-software__feature-item" data-index="3">
+              <button class="hn-software__feature-tab">
+                <span class="icon"
+                  >
+                  <!-- License: PD. Made by mapbox: https://github.com/mapbox/maki -->
+                  <svg
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 15 15"
+                    version="1.1"
+                    id="rocket"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill="currentColor"
+                      id="path7143"
+                      d="M12.5547,1c-2.1441,0-5.0211,1.471-6.9531,4H4&#xA;&#x9;C2.8427,5,2.1794,5.8638,1.7227,6.7773L1.1113,8h1.4434H4l1.5,1.5L7,11v1.4453v1.4434l1.2227-0.6113&#xA;&#x9;C9.1362,12.8206,10,12.1573,10,11V9.3984c2.529-1.932,4-4.809,4-6.9531V1H12.5547z M10,4c0.5523,0,1,0.4477,1,1l0,0&#xA;&#x9;c0,0.5523-0.4477,1-1,1l0,0C9.4477,6,9,5.5523,9,5v0C9,4.4477,9.4477,4,10,4L10,4z M3.5,10L3,10.5C2.2778,11.2222,2,13,2,13&#xA;&#x9;s1.698-0.198,2.5-1L5,11.5L3.5,10z"
+                    />
+                  </svg>
+                </span>
+                <h4>Phần mềm quản trị doanh nghiệp</h4>
+              </button>
+              <div class="hn-software__feature-panel">
+                <div class="hn-software__panel-content">
+                  <h4>Phần mềm quản trị doanh nghiệp</h4>
+                  <img
+                    src="http://homenest.tech/wp-content/uploads/2025/12/74-home-2-8-4.webp"
+                    alt="Multi-Device Power"
+                  />
+                  <p>Hợp nhất mọi luồng vận hành (Kế toán, Kho, Bán hàng...) trên một nền tảng duy nhất. Cung cấp bức tranh toàn cảnh giúp lãnh đạo ra quyết định chính xác tức thì.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hn-software__group-btn">
+            <h5 class="hn-software__fade-in-left animate-on-scroll">Bạn muốn khám phá thêm các dự án của chúng tôi?</h5>
+            <a href="#explore" class="hn-software__btn reverse hn-software__zoom-in animate-on-scroll">Khám phá thêm</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Meet teams section -->
+      <section id="meet-teams-section" class="hn-software__section hn-software__meet-teams-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <h2 class="hn-software__fade-in-up animate-on-scroll">Đội ngũ với nhiều năm kinh nghiệm</h2>
+            <h5 class="hn-software__fade-in-up animate-on-scroll">
+              Với đội ngũ nhiều năm kinh nghiệm, HomeNest tự tin mang đến giải pháp tốt nhất cho quý doanh nghiệp.
+            </h5>
+            <div class="hn-software__group-btn">
+              <!-- Button reverse -->
+              <a href="#" class="hn-software__btn reverse hn-software__zoom-in animate-on-scroll">Liên hệ ngay</a>
+              <!-- Button -->
+              <a href="#meet-teams-section" class="hn-software__btn hn-software__zoom-in animate-on-scroll">
+                Tìm hiểu thêm
+                <i class="hn-software__btn-icon arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <ul class="hn-software__team">
+          </ul>
+
+          <!-- Team slider -->
+          <div class="swiper hn-software__team-slider">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="hn-software__teams-swiper-button-next swiper-button-next"></div>
+            <div class="hn-software__teams-swiper-button-prev swiper-button-prev"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Statistic Section -->
+      <section class="hn-software__section hn-software__statistic-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <h6 class="hn-software__fade-in-up animate-on-scroll">Các con số nổi bật</h6>
+            <h3 class="hn-software__fade-in-up animate-on-scroll">
+              Những giá trị chúng tôi đã mang lại cho khách hàng
+            </h3>
+            <div class="hn-software__productive-speed-wrapper">
+              <h2 class="hn-software__productive-speed hn-software__zoom-in animate-on-scroll">HomeNest</h2>
+            </div>
+          </div>
+          <div class="hn-software__statistic">
+            <!-- Card 1 -->
+            <div class="hn-software__statistic-card hn-software__fade-in-up animate-on-scroll">
+              <h2 class="hn-software__counter" data-target="99">0<span>%</span></h2>
+              <h5>Hài lòng từ khách hàng</h5>
+            </div>
+            <!-- Card 2 -->
+            <div class="hn-software__statistic-card hn-software__fade-in-up animate-on-scroll">
+              <h2 class="hn-software__counter" data-target="1000">0<span>+</span></h2>
+              <h5>Dự án thành công</h5>
+            </div>
+            <!-- Card 3 -->
+            <div class="hn-software__statistic-card hn-software__fade-in-up animate-on-scroll">
+              <h2 class="hn-software__counter" data-target="25">0<span>+</span></h2>
+              <h5>Quốc gia</h5>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Review Section -->
+      <section class="hn-software__section hn-software__review-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <div class="hn-software__wrapper-inner">
+              <h2 class="hn-software__fade-in-up animate-on-scroll">Đánh giá của khách hàng</h2>
+              <p class="hn-software__fade-in-up animate-on-scroll">
+                Những đánh giá của khách hàng là nguồn đồng lực vô tận giúp chúng tôi phục vụ tốt hơn.
+              </p>
+            </div>
+          </div>
+          <!-- Swiper -->
+          <div class="hn-software__review-slider swiper hn-software__fade-in animate-on-scroll">
+            <div class="swiper-wrapper">
+              <!-- Review 1 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Đội ngũ HomeNest không chỉ nhận yêu cầu rồi làm cho xong, mà các bạn đã ngồi lại phân tích quy trình vận hành của chúng tôi rất kỹ để đưa ra giải pháp tinh gọn nhất.”
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_kddgclkddgclkddg-scaled.webp"
+                    alt="-	Lê Thị Cẩm Vân, CTO"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Lê Thị Cẩm Vân</h5>
+                    <p class="hn-software__reviewer-department small-text">CTO</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Review 2 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item half"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Sản phẩm cuối cùng không hề dư thừa tính năng, rất sát thực tế. Cái tôi đánh giá cao nhất là sự kiên nhẫn giải thích và tư vấn của các bạn giúp một người không rành công nghệ như tôi cũng hiểu và làm chủ được hệ thống.”
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_afctwaafctwaafct-scaled.webp"
+                    alt="Trần Minh Hoàng"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Trần Minh Hoàng</h5>
+                    <p class="hn-software__reviewer-department small-text">CEO</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Review 3 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item empty"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Từ khi vận hành hệ thống mới, tỷ lệ khách hàng thoát trang giảm hẳn, đội ngũ sale cũng thao tác chốt đơn nhanh hơn nhờ các tính năng được bố trí thông minh. Rất đáng đồng tiền bát gạo!"
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_ic306vic306vic30-scaled.webp"
+                    alt="-	Nguyễn Thu Trang"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Nguyễn Thu Trang</h5>
+                    <p class="hn-software__reviewer-department small-text">CEO</p>
+                  </div>
+                </div>
+              </div>
+        <!-- Review 1 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Đội ngũ HomeNest không chỉ nhận yêu cầu rồi làm cho xong, mà các bạn đã ngồi lại phân tích quy trình vận hành của chúng tôi rất kỹ để đưa ra giải pháp tinh gọn nhất.”
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_kddgclkddgclkddg-scaled.webp"
+                    alt="-	Lê Thị Cẩm Vân, CTO"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Lê Thị Cẩm Vân</h5>
+                    <p class="hn-software__reviewer-department small-text">CTO</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Review 2 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item half"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Sản phẩm cuối cùng không hề dư thừa tính năng, rất sát thực tế. Cái tôi đánh giá cao nhất là sự kiên nhẫn giải thích và tư vấn của các bạn giúp một người không rành công nghệ như tôi cũng hiểu và làm chủ được hệ thống.”
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_afctwaafctwaafct-scaled.webp"
+                    alt="Trần Minh Hoàng"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Trần Minh Hoàng</h5>
+                    <p class="hn-software__reviewer-department small-text">CEO</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Review 3 -->
+              <div class="swiper-slide">
+                <ul class="hn-software__rating-star">
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item"></li>
+                  <li class="hn-software__rating-star-item empty"></li>
+                </ul>
+                <p class="hn-software__review secondary-text">
+                  “Từ khi vận hành hệ thống mới, tỷ lệ khách hàng thoát trang giảm hẳn, đội ngũ sale cũng thao tác chốt đơn nhanh hơn nhờ các tính năng được bố trí thông minh. Rất đáng đồng tiền bát gạo!"
+                </p>
+                <div class="hn-software__reviewer">
+                  <img
+                    class="hn-software__reviewer-avatar"
+                    src="http://homenest.tech/wp-content/uploads/2025/12/Gemini_Generated_Image_ic306vic306vic30-scaled.webp"
+                    alt="-	Nguyễn Thu Trang"
+                  />
+                  <div class="hn-software__reviewer-info">
+                    <h5 class="hn-software__reviewer-name">Nguyễn Thu Trang</h5>
+                    <p class="hn-software__reviewer-department small-text">CEO</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hn-software__review-swiper-pagination swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust by team section -->
+      <section class="hn-software__section hn-software__trust-by-team-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <h4 class="hn-software__fade-in-up animate-on-scroll">Những khách hàng đã tin tưởng và đồng hành cùng chúng tôi</h4>
+            <p class="hn-software__fade-in-up animate-on-scroll">
+              HomeNest tự hào đã phục vụ cho nhiều doanh nghiệp từ nhỏ đến lớn trong và ngoài nước
+            </p>
+          </div>
+          <div class="swiper hn-software__logo-swiper hn-software__fade-in animate-on-scroll">
+            <div class="swiper-wrapper">
+              <!-- Logo 1 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="/wp-content/uploads/2025/06/Logo_website-68.webp" />
+        </div>
+              </div>
+              <!-- Logo 2 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/06/Logo_website-69.webp" />
+        </div>
+              </div>
+        <!-- Logo 3 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+          <img src="https://homenest.com.vn/wp-content/uploads/2025/06/Logo_website-70.webp" />	
+        </div>
+              </div>
+        <!-- Logo 4 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+          <img src="https://homenest.com.vn/wp-content/uploads/2025/06/Logo_website-71.webp" />
+        </div>
+              </div>
+        <!-- Logo 5 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-72.png" />
+        </div>
+              </div>
+        <!-- Logo 6 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-73.png" />
+        </div>
+              </div>
+        <!-- Logo 7 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-74.png" />
+        </div>
+              </div>
+        <!-- Logo 8 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-75.png" />
+        </div>
+              </div>
+        <!-- Logo 9 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-76.png" />
+        </div>
+              </div>
+        <!-- Logo 10 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-77.png" />
+        </div>
+              </div>
+        <!-- Logo 11 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-78.png" />
+        </div>
+              </div>
+        <!-- Logo 12 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-79.png" />
+        </div>
+              </div>
+        <!-- Logo 13 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-80.png" />
+        </div>
+              </div>
+        <!-- Logo 14 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-81.png" />
+        </div>
+              </div>
+        <!-- Logo 15 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-82.png" />
+        </div>
+              </div>
+        <!-- Logo 16 -->
+              <div class="swiper-slide">
+        <div class="hn-software__logo-wrapper">
+                  <img src="https://homenest.com.vn/wp-content/uploads/2025/11/Logo_website-83.png" />
+        </div>
+              </div>
+      </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog section -->
+      <section class="hn-software__section hn-software__blog-section">
+        <div class="hn-software__section-inner">
+          <div class="hn-software__wrapper">
+            <div class="hn-software__section-title-wrapper hn-software__fade-in animate-on-scroll">
+              <i class="hn-software__section-title-icon"></i>
+              <h6 class="hn-software__section-title">Tin tức</h6>
+            </div>
+            <h2 class="hn-software__fade-in-up animate-on-scroll">
+              Kiến thức và tin tức <span> nổi bật </span>
+            </h2>
+          </div>
+      <?php 
+        $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3
+      );
+      $the_query = new WP_Query($args);
+      ?>
+      <?php if ($the_query->have_posts()) :?>
+      <ul class="hn-software__blog">
+        <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
+        <li class="hn-software__blog-item hn-software__fade-in-up animate-on-scroll">
+          <div class="hn-software__blog-image-wrapper">
+            <a class="hn-software__blog-link-overlay" href="<?php the_permalink(); ?>"></a>
+            <?php the_post_thumbnail('large'); ?>
+          </div>
+          <div class="hn-software__blog-item-inner">
+            <div class="hn-software__cate-wrapper">
+              <?php 
+              $categories = get_the_category();
+              if (!empty($categories)) {
+                foreach ($categories as $category) {
+                  echo '<p class="hn-software__blog-taxonomy taxonomy-text">';
+                  echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">';
+                  echo esc_html($category->name);
+                  echo '</a>';
+                  echo '</p>';
+                }
+              }
+              ?>
+              <p class="hn-software__blog-date meta-text"><?php echo get_the_date(); ?></p>
+            </div>
+            <div class="hn-software__divider"></div>
+            <h5 class="hn-software__blog-title">
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h5>
+            <p class="hn-software__blog-description">
+              <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
+            </p>
+            <a href="<?php the_permalink(); ?>" class="hn-software__btn normal"
+              >Read more<i class="hn-software__btn-icon arrow-right"></i
+              ></a>
+          </div>
+        </li>
+        <?php endwhile;?>
+      </ul>
+      <?php endif; ?>
+          <div class="hn-software__group-btn">
+            <h5 class="hn-software__fade-in-left animate-on-scroll">Bạn muốn khám phá thêm nhiều nội dung hấp dẫn hơn?</h5>
+            <a href="https://homenest.tech/category/thiet-ke-phan-mem/" class="hn-software__btn reverse hn-software__fade-in animate-on-scroll"
+              >Tìm hiểu thêm</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Marquee section -->
+      <section class="hn-software__section hn-software__marquee-section">
+        <div class="hn-software__section-inner">
+          <ul class="hn-software__banner-container">
+            <li class="hn-software__banner-item">
+              <h2 class="hn-software__banner-title">HomeNest Tech</h2>
+              <img
+                class="hn-software__banner-image"
+                src="http://homenest.tech/wp-content/uploads/2025/12/banner-icon-1.svg"
+                alt="banner icon"
+              />
+            </li>
+            <li class="hn-software__banner-item">
+              <h2 class="hn-software__banner-title">HomeNest Tech</h2>
+              <img
+                class="hn-software__banner-image"
+                src="http://homenest.tech/wp-content/uploads/2025/12/banner-icon-1.svg"
+                alt="banner icon"
+              />
+            </li>
+            <li class="hn-software__banner-item">
+              <h2 class="hn-software__banner-title">HomeNest Tech</h2>
+              <img
+                class="hn-software__banner-image"
+                src="http://homenest.tech/wp-content/uploads/2025/12/banner-icon-1.svg"
+                alt="banner icon"
+              />
+            </li>
+            <li class="hn-software__banner-item">
+              <h2 class="hn-software__banner-title">HomeNest Tech</h2>
+              <img
+                class="hn-software__banner-image"
+                src="http://homenest.tech/wp-content/uploads/2025/12/banner-icon-1.svg"
+                alt="banner icon"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- 	Initialize Team member -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const teamList = document.querySelector('.hn-software__team');
+    const teamListSlider = document.querySelector('.hn-software__team-slider .swiper-wrapper');
+    
+    const teamMembers = [
+        {
+          name: "Đỗ Khắc Trung Nguyên",
+          role: "Web Developer",
+          avatarSrc: "https://homenest.com.vn/wp-content/uploads/2025/07/nguyen.jpg",
+          portfolioLink: "#portfolio",
+          social: {
+            facebook: "#facebook",
+            instagram: "#instagram",
+            twitter: "#twitter"
+          }
+        },
+        {
+          name: "Đinh Tiến Dũng",
+          role: "Web Developer",
+          avatarSrc: "https://homenest.com.vn/wp-content/uploads/2025/09/dung.jpg",
+          portfolioLink: "#portfolio",
+          social: {
+            facebook: "#facebook",
+            instagram: "#instagram",
+            twitter: "#twitter"
+          }
+        },
+        {
+          name: "Hoàng Nguyên",
+          role: "Mobile Developer",
+          avatarSrc: "https://homenest.com.vn/wp-content/uploads/2025/09/hoang_nguyen.jpg",
+          portfolioLink: "#portfolio",
+          social: {
+            facebook: "#facebook",
+            instagram: "#instagram",
+            twitter: "#twitter"
+          }
+        },
+      ];
+    if (teamList) {
+      const listItemsHTML = teamMembers.map(member => {
+        return `
+        <li class="hn-software__team-item hn-software__fade-in-up animate-on-scroll">
+                <div class="hn-software__profile-avatar-wrapper">
+                    <a class="hn-software__portfolio-link-overlay" href="${member.portfolioLink}"></a>
+                    <img
+                        src="${member.avatarSrc}"
+                        alt="${member.name}"
+                    />
+                    <ul class="hn-software__social">
+                        <li class="hn-software__social-item facebook">
+                            <a href="${member.social.facebook}" target="_blank">
+                                <svg fill="currentColor" width="16px" height="16px" viewBox="0 0 24 24" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="primary" d="M14,6h3a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H14A5,5,0,0,0,9,7v3H7a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H9v7a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V14h2.22a1,1,0,0,0,1-.76l.5-2a1,1,0,0,0-1-1.24H13V7A1,1,0,0,1,14,6Z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="hn-software__social-item instagram">
+                            <a href="${member.social.instagram}" target="_blank">
+                                <svg fill="currentColor" width="16px" height="16px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+                                    <path d="M17.34,5.46h0a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,17.34,5.46Zm4.6,2.42a7.59,7.59,0,0,0-.46-2.43,4.94,4.94,0,0,0-1.16-1.77,4.7,4.7,0,0,0-1.77-1.15,7.3,7.3,0,0,0-2.43-.47C15.06,2,14.72,2,12,2s-3.06,0-4.12.06a7.3,7.3,0,0,0-2.43.47A4.78,4.78,0,0,0,3.68,3.68,4.7,4.7,0,0,0,2.53,5.45a7.3,7.3,0,0,0-.47,2.43C2,8.94,2,9.28,2,12s0,3.06.06,4.12a7.3,7.3,0,0,0,.47,2.43,4.7,4.7,0,0,0,1.15,1.77,4.78,4.78,0,0,0,1.77,1.15,7.3,7.3,0,0,0,2.43.47C8.94,22,9.28,22,12,22s3.06,0,4.12-.06a7.3,7.3,0,0,0,2.43-.47,4.7,4.7,0,0,0,1.77-1.15,4.85,4.85,0,0,0,1.16-1.77,7.59,7.59,0,0,0,.46-2.43c0-1.06.06-1.4.06-4.12S22,8.94,21.94,7.88ZM20.14,16a5.61,5.61,0,0,1-.34,1.86,3.06,3.06,0,0,1-.75,1.15,3.19,3.19,0,0,1-1.15.75,5.61,5.61,0,0,1-1.86.34c-1,.05-1.37.06-4,.06s-3,0-4-.06A5.73,5.73,0,0,1,6.1,19.8,3.27,3.27,0,0,1,5,19.05a3,3,0,0,1-.74-1.15A5.54,5.54,0,0,1,3.86,16c0-1-.06-1.37-.06-4s0-3,.06-4A5.54,5.54,0,0,1,4.21,6.1,3,3,0,0,1,5,5,3.14,3.14,0,0,1,6.1,4.2,5.73,5.73,0,0,1,8,3.86c1,0,1.37-.06,4-.06s3,0,4,.06a5.61,5.61,0,0,1,1.86.34A3.06,3.06,0,0,1,19.05,5,3.06,3.06,0,0,1,19.8,6.1,5.61,5.61,0,0,1,20.14,8c.05,1,.06,1.37.06,4S20.19,15,20.14,16ZM12,6.87A5.13,5.13,0,1,0,17.14,12,5.12,5.12,0,0,0,12,6.87Zm0,8.46A3.33,3.33,0,1,1,15.33,12,3.33,3.33,0,0,1,12,15.33Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="hn-software__social-item twitter">
+                            <a href="${member.social.twitter}" target="_blank">
+                                <svg width="16px" height="16px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.4784 1.5L14.9773 1.46692C14.964 1.26635 14.8319 1.09324 14.6419 1.0275C14.452 0.961755 14.2411 1.01616 14.1067 1.1656L14.4784 1.5ZM13.9799 4.4589C13.9799 4.18276 13.7561 3.9589 13.4799 3.9589C13.2038 3.9589 12.9799 4.18276 12.9799 4.4589H13.9799ZM7.4892 4.5411H6.9892V4.5411L7.4892 4.5411ZM7.4892 5.5L7.9892 5.5V5.5L7.4892 5.5ZM0.5 12.5V12C0.279732 12 0.0854109 12.1441 0.0215057 12.3549C-0.0423996 12.5657 0.0391667 12.7935 0.222353 12.9158L0.5 12.5ZM1.49846 1.5L1.96671 1.32468C1.89694 1.13834 1.72333 1.0111 1.52464 1.00069C1.32594 0.990268 1.13998 1.09865 1.05111 1.27667L1.49846 1.5ZM5.49228 10.5L5.84611 10.8533C5.96847 10.7307 6.0187 10.5536 5.97889 10.385C5.93907 10.2165 5.81488 10.0806 5.65062 10.0257L5.49228 10.5ZM12.7161 2.47338L12.3452 2.80872L12.5253 3.00797L12.7909 2.96774L12.7161 2.47338ZM13.9795 1.53308C14.0311 2.31088 13.9833 2.78312 13.8573 3.13855C13.7349 3.48354 13.5213 3.76789 13.134 4.13899L13.8259 4.86101C14.2637 4.4415 14.6025 4.02878 14.7997 3.47288C14.9932 2.92744 15.0322 2.29498 14.9773 1.46692L13.9795 1.53308ZM13.9799 5.18749V4.4589H12.9799V5.18749H13.9799ZM6.9892 4.5411L6.9892 5.5L7.9892 5.5L7.9892 4.5411L6.9892 4.5411ZM6.9892 5.5L6.9892 6L7.9892 6L7.9892 5.5L6.9892 5.5ZM10.5256 1C8.57177 1 6.9892 2.58613 6.9892 4.5411H7.9892C7.9892 3.13696 9.12551 2 10.5256 2V1ZM12.9799 5.18749C12.9799 9.50295 9.48717 13 5.18026 13V14C10.0409 14 13.9799 10.0538 13.9799 5.18749H12.9799ZM1.0302 1.67532C1.57358 3.12656 3.61426 6 7.4892 6V5C4.17524 5 2.42179 2.54011 1.96671 1.32468L1.0302 1.67532ZM1.05111 1.27667C0.00437924 3.37336 -0.156896 5.40694 0.60386 7.13861C1.36288 8.86632 2.99598 10.1937 5.33395 10.9743L5.65062 10.0257C3.49554 9.30626 2.13326 8.13368 1.5194 6.73639C0.907282 5.34306 0.995621 3.62664 1.94581 1.72333L1.05111 1.27667ZM5.13845 10.1467C4.53634 10.7498 2.7261 12 0.5 12V13C3.06649 13 5.11696 11.5836 5.84611 10.8533L5.13845 10.1467ZM13.0869 2.13804C12.4557 1.43989 11.5417 1 10.5256 1V2C11.247 2 11.8953 2.3112 12.3452 2.80872L13.0869 2.13804ZM12.7909 2.96774C13.5515 2.85256 14.2935 2.45317 14.8501 1.8344L14.1067 1.1656C13.6988 1.61897 13.1639 1.89985 12.6412 1.97902L12.7909 2.96774ZM0.222353 12.9158C1.86304 14.0113 3.58337 14 5.18026 14V13C3.55033 13 2.13233 12.9887 0.777647 12.0842L0.222353 12.9158Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <h5 class="hn-software__profile-name"><a href="${member.portfolioLink}">${member.name}</a></h5>
+                <p class="taxonomy-text hn-software__profile-department">
+                    <a href="#taxonomy-department">${member.role}</a>
+                </p>
+            </li>				
+        `;
+      }).join('');
+      
+      // Chèn toàn bộ chuỗi HTML vào thẻ ul
+      teamList.innerHTML = listItemsHTML;
+    }
+    
+    if (teamListSlider) {
+      const listItemsHTML = teamMembers.map(member => {
+        return `
+        <div class="swiper-slide">
+          <div class="hn-software__team-item hn-software__fade-in animate-on-scroll">
+            <div class="hn-software__profile-avatar-wrapper">
+              <a class="hn-software__portfolio-link-overlay" href="${member.portfolioLink}"></a>
+              <img
+                src="${member.avatarSrc}"
+                alt="${member.name}"
+              />
+              <ul class="hn-software__social">
+                <li class="hn-software__social-item facebook">
+                  <a href="${member.social.facebook}" target="_blank">
+                    <svg fill="currentColor" width="16px" height="16px" viewBox="0 0 24 24" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg">
+                      <path id="primary" d="M14,6h3a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H14A5,5,0,0,0,9,7v3H7a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H9v7a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V14h2.22a1,1,0,0,0,1-.76l.5-2a1,1,0,0,0-1-1.24H13V7A1,1,0,0,1,14,6Z"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="hn-software__social-item instagram">
+                  <a href="${member.social.instagram}" target="_blank">
+                    <svg fill="currentColor" width="16px" height="16px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+                      <path d="M17.34,5.46h0a1.2,1.2,0,1,0,1.2,1.2A1.2,1.2,0,0,0,17.34,5.46Zm4.6,2.42a7.59,7.59,0,0,0-.46-2.43,4.94,4.94,0,0,0-1.16-1.77,4.7,4.7,0,0,0-1.77-1.15,7.3,7.3,0,0,0-2.43-.47C15.06,2,14.72,2,12,2s-3.06,0-4.12.06a7.3,7.3,0,0,0-2.43.47A4.78,4.78,0,0,0,3.68,3.68,4.7,4.7,0,0,0,2.53,5.45a7.3,7.3,0,0,0-.47,2.43C2,8.94,2,9.28,2,12s0,3.06.06,4.12a7.3,7.3,0,0,0,.47,2.43,4.7,4.7,0,0,0,1.15,1.77,4.78,4.78,0,0,0,1.77,1.15,7.3,7.3,0,0,0,2.43.47C8.94,22,9.28,22,12,22s3.06,0,4.12-.06a7.3,7.3,0,0,0,2.43-.47,4.7,4.7,0,0,0,1.77-1.15,4.85,4.85,0,0,0,1.16-1.77,7.59,7.59,0,0,0,.46-2.43c0-1.06.06-1.4.06-4.12S22,8.94,21.94,7.88ZM20.14,16a5.61,5.61,0,0,1-.34,1.86,3.06,3.06,0,0,1-.75,1.15,3.19,3.19,0,0,1-1.15.75,5.61,5.61,0,0,1-1.86.34c-1,.05-1.37.06-4,.06s-3,0-4-.06A5.73,5.73,0,0,1,6.1,19.8,3.27,3.27,0,0,1,5,19.05a3,3,0,0,1-.74-1.15A5.54,5.54,0,0,1,3.86,16c0-1-.06-1.37-.06-4s0-3,.06-4A5.54,5.54,0,0,1,4.21,6.1,3,3,0,0,1,5,5,3.14,3.14,0,0,1,6.1,4.2,5.73,5.73,0,0,1,8,3.86c1,0,1.37-.06,4-.06s3,0,4,.06a5.61,5.61,0,0,1,1.86.34A3.06,3.06,0,0,1,19.05,5,3.06,3.06,0,0,1,19.8,6.1,5.61,5.61,0,0,1,20.14,8c.05,1,.06,1.37.06,4S20.19,15,20.14,16ZM12,6.87A5.13,5.13,0,1,0,17.14,12,5.12,5.12,0,0,0,12,6.87Zm0,8.46A3.33,3.33,0,1,1,15.33,12,3.33,3.33,0,0,1,12,15.33Z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="hn-software__social-item twitter">
+                  <a href="${member.social.twitter}" target="_blank">
+                    <svg width="16px" height="16px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.4784 1.5L14.9773 1.46692C14.964 1.26635 14.8319 1.09324 14.6419 1.0275C14.452 0.961755 14.2411 1.01616 14.1067 1.1656L14.4784 1.5ZM13.9799 4.4589C13.9799 4.18276 13.7561 3.9589 13.4799 3.9589C13.2038 3.9589 12.9799 4.18276 12.9799 4.4589H13.9799ZM7.4892 4.5411H6.9892V4.5411L7.4892 4.5411ZM7.4892 5.5L7.9892 5.5V5.5L7.4892 5.5ZM0.5 12.5V12C0.279732 12 0.0854109 12.1441 0.0215057 12.3549C-0.0423996 12.5657 0.0391667 12.7935 0.222353 12.9158L0.5 12.5ZM1.49846 1.5L1.96671 1.32468C1.89694 1.13834 1.72333 1.0111 1.52464 1.00069C1.32594 0.990268 1.13998 1.09865 1.05111 1.27667L1.49846 1.5ZM5.49228 10.5L5.84611 10.8533C5.96847 10.7307 6.0187 10.5536 5.97889 10.385C5.93907 10.2165 5.81488 10.0806 5.65062 10.0257L5.49228 10.5ZM12.7161 2.47338L12.3452 2.80872L12.5253 3.00797L12.7909 2.96774L12.7161 2.47338ZM13.9795 1.53308C14.0311 2.31088 13.9833 2.78312 13.8573 3.13855C13.7349 3.48354 13.5213 3.76789 13.134 4.13899L13.8259 4.86101C14.2637 4.4415 14.6025 4.02878 14.7997 3.47288C14.9932 2.92744 15.0322 2.29498 14.9773 1.46692L13.9795 1.53308ZM13.9799 5.18749V4.4589H12.9799V5.18749H13.9799ZM6.9892 4.5411L6.9892 5.5L7.9892 5.5L7.9892 4.5411L6.9892 4.5411ZM6.9892 5.5L6.9892 6L7.9892 6L7.9892 5.5L6.9892 5.5ZM10.5256 1C8.57177 1 6.9892 2.58613 6.9892 4.5411H7.9892C7.9892 3.13696 9.12551 2 10.5256 2V1ZM12.9799 5.18749C12.9799 9.50295 9.48717 13 5.18026 13V14C10.0409 14 13.9799 10.0538 13.9799 5.18749H12.9799ZM1.0302 1.67532C1.57358 3.12656 3.61426 6 7.4892 6V5C4.17524 5 2.42179 2.54011 1.96671 1.32468L1.0302 1.67532ZM1.05111 1.27667C0.00437924 3.37336 -0.156896 5.40694 0.60386 7.13861C1.36288 8.86632 2.99598 10.1937 5.33395 10.9743L5.65062 10.0257C3.49554 9.30626 2.13326 8.13368 1.5194 6.73639C0.907282 5.34306 0.995621 3.62664 1.94581 1.72333L1.05111 1.27667ZM5.13845 10.1467C4.53634 10.7498 2.7261 12 0.5 12V13C3.06649 13 5.11696 11.5836 5.84611 10.8533L5.13845 10.1467ZM13.0869 2.13804C12.4557 1.43989 11.5417 1 10.5256 1V2C11.247 2 11.8953 2.3112 12.3452 2.80872L13.0869 2.13804ZM12.7909 2.96774C13.5515 2.85256 14.2935 2.45317 14.8501 1.8344L14.1067 1.1656C13.6988 1.61897 13.1639 1.89985 12.6412 1.97902L12.7909 2.96774ZM0.222353 12.9158C1.86304 14.0113 3.58337 14 5.18026 14V13C3.55033 13 2.13233 12.9887 0.777647 12.0842L0.222353 12.9158Z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <h5 class="hn-software__profile-name"><a href="${member.portfolioLink}">${member.name}</a></h5>
+            <p class="taxonomy-text hn-software__profile-department">
+              <a href="#taxonomy-department">${member.role}</a>
+            </p>
+          </div>				
+        </div>
+        `;
+      }).join('');
+      
+      teamListSlider.innerHTML = listItemsHTML;
+    }
+  });
+  </script>
+    <!-- Initialize Team Swiper -->
+    <script>
+      var teamsSwiper = new Swiper('.hn-software__team-slider', {
+        rewind: true,
+    loop: true,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.hn-software__teams-swiper-button-next',
+          prevEl: '.hn-software__teams-swiper-button-prev',
+        },
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.hn-software__statistic .hn-software__counter');
+
+        // Cấu hình Observer
+        const options = {
+          root: null, // Theo dõi trên viewport
+          threshold: 0.5, // Khi thẻ hiện ra 50% thì mới bắt đầu chạy
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            // Nếu phần tử xuất hiện trong màn hình
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+
+              // Lấy giá trị đích
+              const target = +counter.getAttribute('data-target');
+
+              // Tốc độ chạy (số càng nhỏ chạy càng nhanh)
+              const duration = 2000; // 2 giây
+              const stepTime = 20; // cập nhật mỗi 20ms
+              const steps = duration / stepTime;
+              const increment = target / steps;
+
+              let current = 0;
+
+              const timer = setInterval(() => {
+                current += increment;
+
+                // Xử lý hiển thị
+                if (current >= target) {
+                  // Khi chạy xong, gán cứng bằng số target để chính xác tuyệt đối
+                  counter.firstChild.textContent = formatNumber(target);
+                  clearInterval(timer);
+                } else {
+                  // Đang chạy
+                  counter.firstChild.textContent = formatNumber(current, target);
+                }
+              }, stepTime);
+
+              // Ngắt theo dõi sau khi đã chạy xong (để không chạy lại lần 2)
+              observer.unobserve(counter);
+            }
+          });
+        }, options);
+
+        // Bắt đầu theo dõi các thẻ h2
+        counters.forEach((counter) => {
+          observer.observe(counter);
+        });
+
+        // Hàm định dạng số thông minh
+        function formatNumber(num) {
+          // Làm tròn số trước khi kiểm tra
+          // Nếu là số thập phân (ví dụ 4.9) -> giữ 1 số lẻ
+          // Nếu là số nguyên (ví dụ 10000.0 hoặc 60.0001 do tính toán) -> làm tròn thành số nguyên
+
+          if (num % 1 !== 0) {
+            // Trường hợp số thập phân thực sự (như 4.5, 4.9)
+            return num.toFixed(1);
+          } else {
+            // Trường hợp số nguyên (như 10000, 60)
+            // Math.round để loại bỏ sai số nhỏ (ví dụ 59.99999 -> 60)
+            // toLocaleString để thêm dấu phẩy (10,000)
+            return Math.round(num).toLocaleString('en-US');
+          }
+        }
+      });
+    </script>
+
+    <script>
+      // entrance animation chạy khi element scroll vào viewport
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.hn-software__banner-container');
+        // Lấy danh sách các item gốc
+        const originalItems = Array.from(container.children);
+
+        // --- BƯỚC 1: NHÂN 4 SỐ LƯỢNG BANNER ---
+        // Vì đã có 1 set gốc, ta lặp thêm 3 lần nữa để clone
+        for (let i = 0; i < 3; i++) {
+          originalItems.forEach((item) => {
+            const clone = item.cloneNode(true); // true để copy cả con bên trong (img, h2)
+            container.appendChild(clone);
+          });
+        }
+
+        // --- BƯỚC 2: XỬ LÝ DI CHUYỂN VÀ ĐẢO VỊ TRÍ ---
+        let scrollSpeed = 2; // Tốc độ di chuyển (px/frame). Tăng lên sẽ chạy nhanh hơn
+        let currentScroll = 0;
+
+        function animate() {
+          currentScroll -= scrollSpeed;
+          container.style.transform = `translateX(${currentScroll}px)`;
+
+          const firstItem = container.children[0];
+          // Lấy chiều rộng của item đầu tiên (bao gồm cả margin/padding nếu tính toán kỹ)
+          // Ở đây lấy offsetWidth và cộng thêm padding-right bạn set trong CSS (ví dụ 40px)
+          const itemWidth = firstItem.offsetWidth;
+
+          // Kiểm tra xem item đầu tiên đã trôi hết ra khỏi màn hình chưa
+          // (Lấy giá trị tuyệt đối của currentScroll so sánh với chiều rộng item)
+          if (Math.abs(currentScroll) >= itemWidth) {
+            // 1. Reset vị trí scroll: Cộng thêm chiều rộng item vừa mất để bù lại
+            currentScroll += itemWidth;
+            container.style.transform = `translateX(${currentScroll}px)`;
+
+            // 2. Chuyển item đầu tiên xuống cuối danh sách
+            container.appendChild(firstItem);
+          }
+
+          requestAnimationFrame(animate);
+        }
+
+        // Bắt đầu chạy
+        requestAnimationFrame(animate);
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // 1. Chọn các phần tử cần thiết
+        const playButton = document.querySelector('.hn-software__video-play-button');
+        const overlayImage = document.querySelector('.hn-software__video-overlay-image');
+        const iframe = document.querySelector('.hn-software__video-demo-iframe');
+
+        // Kiểm tra xem các phần tử có tồn tại không để tránh lỗi
+        if (playButton && overlayImage && iframe) {
+          // 2. Bắt sự kiện click
+          playButton.addEventListener('click', function () {
+            // A. Ẩn nút play và ảnh overlay
+            playButton.style.display = 'none';
+            overlayImage.style.display = 'none';
+
+            // B. Kích hoạt video (Thêm autoplay vào URL)
+            let currentSrc = iframe.getAttribute('src');
+
+            // Kiểm tra xem URL đã có tham số truy vấn chưa (dấu ?)
+            // Nếu có rồi thì dùng '&', chưa có thì dùng '?'
+            const separator = currentSrc.includes('?') ? '&' : '?';
+
+            // Cập nhật src mới có autoplay=1
+            iframe.setAttribute('src', currentSrc + separator + 'autoplay=1');
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.hn-software__feature-item');
+        const tabs = document.querySelectorAll('.hn-software__feature-tab');
+
+        // Hàm cập nhật UI cho Desktop (Logic Stack)
+        function updateDesktopStack(clickedIndex) {
+          items.forEach((item, index) => {
+            // Xóa active class ở tab button để reset style
+            item.classList.remove('active');
+
+            // LOGIC STACK:
+            // Nếu index của item <= clickedIndex:
+            // Nghĩa là nó nằm TRƯỚC hoặc LÀ cái đang chọn -> Phải hiển thị (stacked).
+            // Vì z-index của cái sau cao hơn cái trước, nên cái clickedIndex sẽ đè lên các cái trước đó.
+            if (index <= clickedIndex) {
+              item.classList.add('stacked');
+            } else {
+              // Nếu index > clickedIndex:
+              // Nghĩa là nó nằm SAU cái đang chọn -> Phải gỡ ra (bỏ class stacked).
+              // Hiệu ứng transition trong CSS sẽ làm nó fade out/slide down.
+              item.classList.remove('stacked');
+            }
+          });
+
+          // Chỉ active visual cho nút bấm hiện tại
+          items[clickedIndex].classList.add('active');
+        }
+
+        // Hàm cập nhật UI cho Mobile (Logic Accordion)
+        function updateMobileAccordion(clickedIndex) {
+          const clickedItem = items[clickedIndex];
+          const isActive = clickedItem.classList.contains('active');
+
+          // Reset: Đóng tất cả các tab khác
+          items.forEach((item) => item.classList.remove('active'));
+
+          // Nếu cái vừa bấm chưa active -> Mở nó ra
+          // Nếu đã active rồi -> thì thôi (đã remove ở dòng trên -> thành đóng lại)
+          if (!isActive) {
+            clickedItem.classList.add('active');
+          }
+        }
+
+        // Xử lý sự kiện click
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => {
+            const isDesktop = window.innerWidth >= 768;
+
+            if (isDesktop) {
+              updateDesktopStack(index);
+            } else {
+              updateMobileAccordion(index);
+            }
+          });
+        });
+
+        // Khởi tạo mặc định (chọn tab đầu tiên)
+        if (window.innerWidth >= 768) {
+          updateDesktopStack(0);
+        }
+      });
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var reviewSwiper = new Swiper('.hn-software__review-slider', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 80,
+        loop: true,
+        pagination: {
+          el: '.hn-software__review-swiper-pagination',
+          clickable: true,
+        },
+      });
+    </script>
+
+    <script>
+      const companyLogoSwiper = new Swiper('.hn-software__trust-by-team-section .hn-software__logo-swiper', {
+        slidesPerView: 6,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+          delay: 0,
+        },
+        speed: 3500, // tốc độ chạy, càng nhỏ càng nhanh
+        // freeMode: {
+        //   enabled: true,
+        //   momentum: false, // không quán tính
+        // },
+        allowTouchMove: false,
+        breakpoints: {
+          0: { slidesPerView: 2, spaceBetween: 0 },
+          480: { slidesPerView: 3, spaceBetween: 0 },
+          768: { slidesPerView: 4, spaceBetween: 0 },
+          1024: { slidesPerView: 5, spaceBetween: 0 },
+      1600: { slidesPerView: 6, spaceBetween: 0}
+       },
+      });
+    </script>
+  </body>
+<?php get_footer(); ?>
