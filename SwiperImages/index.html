@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+  /* Tắt flex mặc định của swiper-slide */
+.mySwiper .swiper-slide {
+  display: block !important;
+}
+
+/* Khung mỗi slide */
+.mySwiper .grid-slide {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* 2 hàng */
+  gap: 15px;
+  height: 100%;
+}
+
+/* Mỗi hàng dùng grid 12 cột */
+.mySwiper .row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 15px;
+  height: 100%;
+}
+
+.mySwiper-wrapper {
+  position: relative;
+  padding: 0 60px;
+}
+
+.mySwiper {
+  height: auto;
+}
+
+.mySwiper .swiper-slide {
+  height: auto !important;
+}
+
+
+/* Image theo span */
+.mySwiper .col-3 { grid-column: span 3; }
+.mySwiper .col-4 { grid-column: span 4; }
+.mySwiper .col-5 { grid-column: span 5; }
+.mySwiper .col-6 { grid-column: span 6; }
+.mySwiper .col-7 { grid-column: span 7; }
+.mySwiper .col-8 { grid-column: span 8; }
+
+
+.mySwiper .row img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="mySwiper-wrapper">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- SLIDE 1 -->
+        <div class="swiper-slide">
+          <div class="grid-slide">
+
+            <div class="row">
+              <img class="col-5" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-42.png" />
+              <img class="col-3" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-43.png" />
+              <img class="col-4" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-42.png" />
+            </div>
+
+            <div class="row">
+              <img class="col-8" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-45.png" />
+              <img class="col-4" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-46.png" />
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SLIDE 2 (Ví dụ) -->
+        <div class="swiper-slide">
+          <div class="grid-slide">
+
+            <div class="row">
+              <img class="col-5" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-42.png" />
+              <img class="col-3" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-43.png" />
+              <img class="col-4" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-42.png" />
+            </div>
+
+            <div class="row">
+              <img class="col-8" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-45.png" />
+              <img class="col-4" src="http://h1.homenest.software/wp-content/uploads/2025/11/Rectangle-46.png" />
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+   var swiper = new Swiper(".mySwiper", {
+    slidesPerView: "auto",   // quan trọng: slide tự rộng theo nội dung
+    freeMode: true,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+
+  </script>
+</body>
+
+</html>

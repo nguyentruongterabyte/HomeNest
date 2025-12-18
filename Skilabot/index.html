@@ -1,0 +1,3649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skilabot</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        font-family: 'Lato', sans-serif;
+      }
+
+      :root {
+        /* Color */
+        --global-color-primary: #101828;
+        --global-color-secondary: #a86390;
+        --global-color-text: #101828;
+        --global-color-accent: #ffffff;
+        --global-color-997ffda: #e8547a;
+        --global-color-54f91f5: #f58244;
+        --global-color-07e9d91: #7ad0bd;
+        --global-color-36add87: #f5eae8;
+        --global-color-08f9852: #f6e0db;
+        --global-color-baad9bd: #fef0ec;
+        --global-color-a6407f4: #fef5f7;
+        --global-color-076742e: #fef7f4;
+        --global-color-b9265b6: #a863901a;
+        --global-color-450867d: #9651f0;
+        --rating-icon-color: #e8547a;
+
+        --global-typography-accent-font-size: 18px;
+        --global-typography-accent-font-weight: 600;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      /* Animation: Fade in */
+      .hn__fade-in.animate {
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Animation: Fade in left */
+      .hn__fade-in-left.animate {
+        transform: translateX(-200px);
+        animation: fadeInLeft 0.8s ease forwards;
+      }
+
+      @keyframes fadeInLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Animation: Fade in right */
+      .hn__fade-in-right.animate {
+        transform: translateX(200px);
+        animation: fadeInRight 0.8s ease forwards;
+      }
+
+      @keyframes fadeInRight {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Animation: Zoom in */
+      .hn__zoom-in.animate {
+        transform: scale(0.8);
+        animation: zoomIn 0.8s ease forwards;
+      }
+
+      @keyframes zoomIn {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Animation: Zoom in down */
+      .hn__zoom-in-down.animate {
+        animation: zoomInDown 0.8s ease forwards;
+      }
+
+      @keyframes zoomInDown {
+        0% {
+          opacity: 0;
+          transform: scale(0.6) translateY(-40px);
+        }
+
+        60% {
+          opacity: 1;
+          transform: scale(1.05) translateY(0);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .hn__button-group {
+        display: flex;
+        column-gap: 20px;
+      }
+
+      .hn__divider {
+        display: block;
+        border-top: 1px solid var(--global-color-accent);
+        margin: 25px 0;
+      }
+
+      .hn__introduction-title {
+        font-size: 52px;
+        line-height: 60px;
+        font-weight: 700;
+        color: var(--global-color-primary);
+      }
+
+      .hn__paragraph {
+        font-weight: 400;
+        line-height: 22px;
+        color: var(--global-color-accent);
+        font-size: 16px;
+      }
+
+      .hn__benefit-wrapper {
+        display: grid;
+        row-gap: 16px;
+      }
+
+      .hn__benefit-item {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .hn__horizontal {
+        display: flex;
+        column-gap: 4px;
+      }
+
+      .hn__section-title {
+        text-transform: uppercase;
+        color: var(--global-color-accent);
+        font-size: 16px;
+        font-weight: 500;
+        font-style: italic;
+        margin-left: 8px;
+        line-height: 20px;
+      }
+
+      .hn__circle-icon {
+        width: 10px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--global-color-accent);
+      }
+
+      .hn__circle-icon svg {
+        width: 10px;
+        height: 10px;
+      }
+
+      .hn__btn {
+        display: block;
+        width: fit-content;
+        padding: 12px 29px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        line-height: 20px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .hn__features-section,
+      .hn__about-section,
+      .hn__pricing-section,
+      .hn__platforms-section,
+      .hn__integration-section,
+      .hn__socials-section,
+      .hn__blog-section,
+      .hn__contact-section {
+        padding: 100px 0;
+      }
+
+      .hn__flatform,
+      .hn__blog-item,
+      .hn__pricing-section .hn__pricing-item {
+        border: 1px solid var(--global-color-54f91f5);
+      }
+
+      .hn__flatform,
+      .hn__blog-item,
+      .hn__pricing-section .hn__pricing-item,
+      .hn__blog-item .hn__blog-featured-image,
+      .hn__contact-form {
+        border-radius: 30px;
+      }
+
+      .hn__features-section .hn__circle-icon,
+      .hn__pricing-section .hn__circle-icon,
+      .hn__integration-section .hn__circle-icon,
+      .hn__blog-section .hn__circle-icon {
+        color: var(--global-color-997ffda);
+      }
+
+      .hn__features-section .hn__horizontal,
+      .hn__pricing-section .hn__horizontal,
+      .hn__blog-section .hn__horizontal {
+        column-gap: 8px;
+      }
+
+      .hn__introduction-container,
+      .hn__companies-trust-container {
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+      }
+
+      .hn__main > .hn__container {
+        width: 100%;
+      }
+
+      .hn__section {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      .hn__introduction-container {
+        position: relative;
+        background-image: linear-gradient(180deg, #fef5f7 0%, #fef7f4 100%);
+        z-index: 2;
+      }
+
+      .hn__companies-trust-container {
+        width: 100%;
+        margin-top: -42px;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        background-image: linear-gradient(90deg, var(--global-color-54f91f5) 0%, var(--global-color-997ffda) 100%);
+      }
+
+      .hn__introduction-section {
+        display: flex;
+        padding: 200px 0 100px 0;
+      }
+
+      .hn__sign-up-container {
+        width: 44%;
+        padding-top: 25px;
+      }
+
+      .hn__sign-up-container .hn__title {
+        line-height: 100px;
+        font-size: 90px;
+        font-weight: 700;
+        color: var(--global-color-text);
+      }
+
+      .hn__title.gradient {
+        color: var(--global-color-54f91f5);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-color: transparent;
+        background-image: linear-gradient(130deg, var(--global-color-54f91f5) 0%, var(--global-color-997ffda) 50%);
+      }
+
+      .hn__email-box {
+        margin-top: 40px;
+        border: 1px solid var(--global-color-secondary);
+        border-radius: 10px;
+        display: flex;
+        padding: 8px 8px 8px 0;
+      }
+
+      .hn__email-box .hn__input {
+        flex: 1;
+        padding: 12px 20px;
+        font-size: 16px;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: var(--global-color-text);
+      }
+
+      .hn__email-box .hn__input::placeholder {
+        color: var(--global-color-text);
+      }
+
+      .hn__email-box .hn__sign-up-btn,
+      .hn__pricing-section .hn__pricing-item.free .hn__btn,
+      .hn__blog-section .hn__btn,
+      .hn__contact-form-submit-btn {
+        background-color: var(--global-color-secondary);
+        color: var(--global-color-accent);
+        border: 1px solid var(--global-color-secondary);
+      }
+
+      .hn__email-box .hn__sign-up-btn:hover,
+      .hn__pricing-section .hn__pricing-item.free .hn__btn:hover,
+      .hn__blog-section .hn__btn:hover,
+      .hn__contact-form-submit-btn:hover {
+        background-color: var(--global-color-b9265b6);
+        color: var(--global-color-primary);
+        border-color: var(--global-color-secondary);
+      }
+
+      .hn__benefit-box {
+        margin-top: 40px;
+        display: flex;
+        gap: 24px;
+      }
+
+      .hn__benefit-box .hn__benefit-item {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        /* width: 33.33%; */
+        gap: 0 10px;
+        list-style: none;
+      }
+
+      .hn__benefit-box .hn__benefit-item .hn__benefit-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 150px;
+        background-color: transparent;
+        background-image: linear-gradient(215deg, var(--global-color-07e9d91) 0%, var(--global-color-secondary) 100%);
+      }
+
+      .hn__benefit-box .hn__benefit-item .hn__benefit-icon svg {
+        fill: var(--global-color-accent);
+      }
+
+      .hn__benefit-box .hn__benefit-item .hn__benefit-title {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: var(--global-color-primary);
+      }
+
+      .hn__rating-box {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        column-gap: 12px;
+        width: 56%;
+        margin-top: 80px;
+        padding: 25px 20px;
+        background-color: transparent;
+        background-image: linear-gradient(195deg, var(--global-color-07e9d91) 0%, var(--global-color-54f91f5) 100%);
+        border-radius: 10px;
+        border: 1px solid var(--global-color-07e9d91);
+      }
+
+      .hn__rating-box .hn__image-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background-color: var(--global-color-primary);
+      }
+
+      .hn__rating-box .hn__image-box img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .hn__rating-box .hn__rating-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hn__rating-box .hn__rating-star {
+        display: flex;
+        column-gap: 4px;
+      }
+
+      .hn__rating-box .hn__rating-star .hn__rating-star-item {
+        list-style: none;
+      }
+
+      .hn__rating-box .hn__rating-star .hn__rating-star-item svg {
+        fill: var(--rating-icon-color);
+      }
+
+      .hn__rating-box .hn__rating-star .hn__rating-star-item.no-fill svg {
+        fill: var(--global-color-36add87);
+      }
+
+      .hn__rating-box .hn__rating-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--global-color-primary);
+      }
+
+      .hn__image-container {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        position: relative;
+      }
+
+      .hn__image-container .hn__message-container,
+      .hn__image-container .hn__image-wrapper {
+        width: 86%;
+      }
+
+      .hn__image-container .hn__image-wrapper {
+        border-radius: 30px;
+        overflow: hidden;
+        animation: bobFloatingXY 1s ease-in-out infinite alternate;
+      }
+
+      .hn__image-container .hn__image-wrapper:hover {
+        animation: bobXY 1s ease-in-out infinite alternate;
+      }
+
+      .hn__image-container .hn__image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @keyframes bobFloatingXY {
+        from {
+          transform: translate(0px, 5px);
+        }
+        to {
+          transform: translate(2px, -5px);
+        }
+      }
+
+      @keyframes bobXY {
+        from {
+          transform: translate(0px, 0px);
+        }
+        to {
+          transform: translate(2px, 10px);
+        }
+      }
+
+      @keyframes bobY {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(6px);
+        }
+      }
+
+      .hn__image-container .hn__message-container {
+        width: 86%;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      .hn__image-container .hn__message-wrapper {
+        position: absolute;
+        border: 1px solid var(--global-color-secondary);
+        padding: 26px;
+        border-radius: 10px;
+      }
+
+      .hn__image-container .hn__message-wrapper:first-child {
+        top: 155px;
+        left: -56px;
+        width: 37%;
+      }
+
+      .hn__image-container .hn__message-wrapper:first-child .hn__message {
+        top: 6px;
+        left: -6px;
+        background-image: radial-gradient(at center center, #ffffff40 0%, #ffffffe6 0%);
+        color: var(--global-color-primary);
+      }
+
+      .hn__image-container .hn__message {
+        position: absolute;
+        padding: 17px;
+        width: 100%;
+        box-shadow: -4px 5px 16px -6px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+
+      .hn__image-container .hn__message img {
+        position: absolute;
+        bottom: -24px;
+        left: -24px;
+      }
+
+      .hn__image-container .hn__message-wrapper:nth-child(2) {
+        top: 255px;
+        left: -135px;
+        width: 44%;
+        border-color: var(--global-color-a6407f4);
+      }
+
+      .hn__image-container .hn__message-wrapper:nth-child(2) .hn__message {
+        top: -6px;
+        left: -6px;
+        background-color: var(--global-color-secondary);
+        color: var(--global-color-accent);
+      }
+
+      .hn__banner {
+        display: flex;
+        align-items: center;
+      }
+
+      .hn__banner .hn__banner-title {
+        width: 40%;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--global-color-accent);
+      }
+
+      .hn__banner .hn__logo-section {
+        width: 60%;
+      }
+
+      .swiper-slide img {
+        width: 38px;
+        height: auto;
+        object-fit: contain;
+        margin: auto;
+        display: block;
+      }
+
+      .swiper-slide {
+        height: 42px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hn__platforms-section {
+        display: flex;
+        column-gap: 20px;
+      }
+
+      .hn__flatform {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        z-index: 0;
+        justify-content: end;
+        overflow: hidden;
+      }
+
+      .hn__flatform .hn__background-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+      }
+
+      .hn__flatform .hn__title-group {
+        display: flex;
+        column-gap: 12px;
+      }
+
+      .hn__flatform .hn__title {
+        color: var(--global-color-primary);
+        line-height: 50px;
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .hn__flatform:first-child {
+        width: 66%;
+        padding: 77px 35px 0;
+      }
+
+      .hn__flatform:first-child .platform-image {
+        margin-top: 40px;
+      }
+
+      .hn__flatform:first-child::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(210deg, var(--global-color-07e9d91) 0%, var(--global-color-54f91f5) 100%);
+        border-radius: 10px;
+      }
+
+      .hn__flatform:nth-child(2) {
+        width: 34%;
+        padding: 40px 35px 35px;
+        border-color: var(--global-color-07e9d91);
+        background-image: linear-gradient(210deg, var(--global-color-07e9d91) 0%, var(--global-color-secondary) 100%);
+      }
+
+      .hn__flatform:nth-child(2) .hn__title {
+        line-height: 38px;
+        font-size: 32px;
+      }
+
+      .hn__flatform:nth-child(2) .platform-image {
+        margin-bottom: 22px;
+        margin-top: 30px;
+      }
+
+      .hn__flatform .platform-image {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .hn__flatform .download-app-btn {
+        width: calc(100% - 2 * 35px);
+        position: absolute;
+        bottom: 35px;
+        left: 35px;
+        right: 35px;
+        padding: 12px;
+        background-color: var(--global-color-accent);
+        color: var(--global-color-text);
+      }
+
+      .hn__flatform .download-app-btn:hover {
+        background-color: var(--global-color-text);
+        color: var(--global-color-accent);
+      }
+
+      .hn__about-container {
+        background-image: linear-gradient(192deg, var(--global-color-07e9d91) 0%, var(--global-color-997ffda) 100%);
+      }
+
+      .hn__about-section {
+        display: flex;
+        align-items: center;
+      }
+
+      .hn__about-section .hn__about-us {
+        width: 55%;
+      }
+
+      .hn__about-section .hn__demo-chat {
+        width: 45%;
+        position: relative;
+        padding-left: 150px;
+        padding-right: 100px;
+        z-index: 0;
+      }
+
+      .hn__about-section .hn__introduction-title {
+        margin-top: 15px;
+        color: var(--global-color-accent);
+      }
+
+      .hn__about-us > .hn__paragraph {
+        padding-right: 50px;
+        margin-top: 15px;
+      }
+
+      .hn__about-us .hn__benefit-wrapper {
+        margin-top: 30px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hn__about-us .hn__benefit-item {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .hn__about-us .hn__button-group {
+        margin-top: 45px;
+      }
+
+      .hn__about-us .hn__btn {
+        border-radius: 10px;
+      }
+
+      .hn__about-us .hn__btn:first-child,
+      .hn__get-download-section .hn__btn:first-child {
+        background-color: transparent;
+        border: 1px solid var(--global-color-accent);
+        color: var(--global-color-accent);
+      }
+
+      .hn__about-us .hn__btn:first-child:hover,
+      .hn__get-download-section .hn__btn:first-child:hover {
+        background-color: var(--global-color-accent);
+        color: var(--global-color-text);
+      }
+
+      .hn__about-us .hn__btn:nth-child(2),
+      .hn__pricing-section .hn__pricing-item.premium .hn__btn,
+      .hn__get-download-section .hn__btn:nth-child(2) {
+        background-color: var(--global-color-accent);
+        border: 1px solid var(--global-color-accent);
+        color: var(--global-color-text);
+      }
+
+      .hn__about-us .hn__btn:nth-child(2):hover,
+      .hn__pricing-section .hn__pricing-item.premium .hn__btn:hover,
+      .hn__get-download-section .hn__btn:nth-child(2):hover {
+        background-color: transparent;
+        color: var(--global-color-accent);
+      }
+
+      .hn__demo-chat .hn__phone-image {
+        width: 100%;
+      }
+
+      .hn__demo-chat .hn__conversation,
+      .hn__demo-chat .hn__background-image-wrapper,
+      .hn__demo-chat .hn__background-image {
+        position: absolute;
+      }
+
+      .hn__demo-chat .hn__conversation:hover img {
+        animation: bobY 1s ease-in-out infinite alternate;
+      }
+
+      .hn__demo-chat .hn__conversation.conversation-1 {
+        top: 68px;
+        left: 45px;
+      }
+
+      .hn__demo-chat .hn__conversation.conversation-2 {
+        bottom: 63px;
+        right: 0;
+      }
+
+      .hn__demo-chat .hn__background-image-wrapper {
+        top: 28px;
+        right: -50px;
+        z-index: -1;
+      }
+
+      .hn__demo-chat .hn__background-image {
+        top: 0;
+        right: 0;
+      }
+
+      .hn__demo-chat .hn__background-image:nth-child(2) {
+        top: 60px;
+      }
+
+      .hn__features-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hn__features-section .hn__feature-wrapper {
+        margin-top: 45px;
+        display: flex;
+      }
+
+      .hn__features-section .hn__phone-image-wrapper {
+        width: 36%;
+      }
+
+      .hn__features-section .hn__phone-image {
+        width: 100%;
+        height: auto;
+      }
+
+      .hn__features-section .hn__phone-image:hover {
+        animation: bobY 1s ease-in-out infinite alternate;
+      }
+
+      .hn__feature-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 32%;
+      }
+
+      .hn__feature-list:first-child {
+        padding-right: 67px;
+      }
+
+      .hn__feature-list:nth-of-type(2) {
+        padding-left: 67px;
+      }
+
+      .hn__feature-item {
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+      }
+
+      .hn__feature-item:first-child {
+        padding-bottom: 30px;
+      }
+
+      .hn__feature-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .hn__feature-item + .hn__feature-item {
+        border-top: 1px solid var(--global-color-secondary);
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .hn__feature-item .hn__feature-title {
+        margin: 20px 0 10px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        color: var(--global-color-text);
+      }
+
+      .hn__feature-item .hn__feature-description {
+        text-align: center;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        color: var(--global-color-text);
+      }
+
+      /* Pricing section */
+      .hn__container.hn__pricing-container {
+        background-color: var(--global-color-36add87);
+      }
+
+      .hn__pricing-section,
+      .hn__pricing-section-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hn__pricing-section .hn__premium-feature-image {
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+      }
+
+      .hn__pricing-section .hn__premium-feature-title {
+        color: var(--global-color-text);
+        margin-top: 16px;
+      }
+
+      .hn__pricing-section-inner {
+        width: 83%;
+      }
+
+      .hn__pricing-section .hn__premium-title {
+        margin-top: 40px;
+        color: var(--global-color-text);
+        font-weight: 400;
+      }
+
+      .hn__pricing-section .hn__premium-feature-list {
+        margin-top: 35px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 85px;
+      }
+
+      .hn__pricing-section .hn__premium-feature-item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hn__pricing-section .hn__price-wrapper .hn__paragraph {
+        padding-top: 10px;
+      }
+
+      .hn__pricing-section .hn__pricing-list {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 25px;
+      }
+
+      .hn__pricing-section .hn__pricing-item {
+        padding: 40px 35px;
+        list-style: none;
+      }
+
+      .hn__pricing-item:first-child .hn__pricing-description {
+        width: 62%;
+      }
+
+      .hn__pricing-item:nth-child(2) .hn__pricing-description {
+        width: 68%;
+      }
+
+      .hn__pricing-section .hn__pricing-item.free * {
+        color: var(--global-color-text);
+      }
+
+      .hn__pricing-section .hn__pricing-item.premium {
+        background-image: linear-gradient(210deg, var(--global-color-54f91f5) 0%, var(--global-color-997ffda) 100%);
+      }
+
+      .hn__pricing-section .hn__pricing-item.premium * {
+        color: var(--global-color-accent);
+      }
+
+      .hn__pricing-section .hn__pricing-item.free .hn__divider {
+        border-color: var(--global-color-secondary);
+      }
+
+      .hn__pricing-section .hn__pricing-title {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 38px;
+      }
+
+      .hn__pricing-section .hn__card-require {
+        margin-top: 10px;
+        line-height: 22px;
+      }
+
+      .hn__pricing-section .hn__price-wrapper {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        margin: 20px 0 20px;
+      }
+
+      .hn__pricing-section .hn__price {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 50px;
+      }
+
+      .hn__pricing-section .hn__price-wrapper .hn__paragraph {
+        padding-top: 16px;
+      }
+
+      .hn__pricing-section .hn__pricing-item .hn__btn {
+        margin-bottom: 20px;
+      }
+
+      .hn__pricing-section .hn__benefit-item {
+        gap: 16px;
+      }
+
+      .hn__integration-section {
+        display: flex;
+        padding-bottom: 60px;
+      }
+
+      .hn__integration-section .hn__paragraph {
+        color: var(--global-color-text);
+        width: 35%;
+        padding-left: 20px;
+        margin-top: 25px;
+      }
+
+      .hn__integration-section .hn__section-title-wrapper,
+      .hn__blog-section .hn__section-title-wrapper {
+        width: 65%;
+      }
+
+      .hn__socials-section {
+        padding-bottom: 200px;
+        position: relative;
+        z-index: 0;
+      }
+
+      .hn__socials-section .hn__title {
+        line-height: 240px;
+        font-size: 300px;
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+        color: var(--global-color-08f9852);
+      }
+
+      .hn__socials-section .hn__social-list {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        bottom: 200px;
+        right: 0;
+        z-index: 1;
+      }
+
+      .hn__socials-section .hn__social-item {
+        width: fit-content;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        list-style: none;
+      }
+
+      .hn__socials-section .hn__social-title {
+        padding: 12px 34px;
+        margin-top: -12px;
+        border-radius: 36px;
+        height: fit-content;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        box-shadow: 9px 5px 16px 0px rgba(0, 0, 0, 0.1);
+        background-color: var(--global-color-accent);
+      }
+
+      .hn__socials-section .hn__social-item.youtube {
+        left: 110px;
+        top: -15px;
+      }
+
+      .hn__socials-section .hn__social-item.whatsapp {
+        left: 0;
+        bottom: 32px;
+      }
+
+      .hn__socials-section .hn__social-item.gmail {
+        left: 210px;
+        bottom: -110px;
+      }
+
+      .hn__socials-section .hn__social-item.dropbox {
+        left: 480px;
+        top: -95px;
+      }
+
+      .hn__socials-section .hn__social-item.facebook {
+        left: 435px;
+        bottom: 32px;
+      }
+
+      .hn__socials-section .hn__social-item.slack {
+        right: 100px;
+        top: -15px;
+      }
+
+      .hn__socials-section .hn__social-item.instagram {
+        right: 0px;
+        bottom: 10px;
+      }
+
+      .hn__socials-section .hn__social-item.twitter {
+        right: 228px;
+        bottom: -110px;
+      }
+
+      .hn__socials-section .hn__social-item.twitter,
+      .hn__socials-section .hn__social-item.gmail {
+        flex-direction: row-reverse;
+      }
+
+      .hn__get-download-container {
+        background-image: linear-gradient(90deg, var(--global-color-54f91f5) 0%, var(--global-color-997ffda) 60%);
+      }
+
+      .hn__get-download-section {
+        padding-top: 50px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hn__get-download-section .hn__section-title-wrapper {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hn__get-download-section .hn__get-download-image-wrapper {
+        width: 40%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+
+      .hn__get-download-section .hn__get-download-image {
+        width: 92%;
+      }
+
+      .hn__get-download-section .hn__introduction-title {
+        margin-top: 15px;
+        color: var(--global-color-accent);
+      }
+
+      .hn__get-download-section .hn__paragraph {
+        margin-top: 15px;
+        width: 84%;
+      }
+
+      .hn__get-download-section .hn__button-group {
+        margin-top: 50px;
+      }
+
+      .hn__get-download-section .hn__btn:first-child,
+      .hn__get-download-section .hn__btn:nth-child(2):hover {
+        background-color: #ffffff1a;
+      }
+
+      .hn__blog-section {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 40px;
+      }
+
+      .hn__blog-list-section {
+        padding-bottom: 100px;
+      }
+
+      .hn__blog-list {
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hn__blog-item {
+        overflow: hidden;
+      }
+
+      .hn__blog-item-inner {
+        width: 100%;
+        padding: 30px 25px 40px;
+      }
+
+      .hn__blog-featured-image-wrapper {
+        display: block;
+        width: 100%;
+        height: 265px;
+      }
+      .hn__blog-featured-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hn__blog-information-list {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .hn__blog-information-item,
+      .hn__blog-title,
+      .hn__blog-short-description {
+        color: var(--global-color-text);
+      }
+
+      .hn__blog-information-item {
+        list-style: none;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+
+      .hn__blog-information-item:not(:only-child):not(:last-child)::after {
+        content: '•';
+        margin: 0 0.5rem;
+      }
+
+      .hn__blog-title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        text-decoration: none;
+      }
+
+      .hn__blog-title:hover {
+        color: var(--global-color-secondary);
+      }
+
+      .hn__blog-short-description {
+        margin-top: 10px;
+        padding-right: 60px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* số dòng muốn hiển thị */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .hn__blog-item .hn__btn {
+        margin-top: 24px;
+        padding: 0;
+        color: var(--global-color-secondary);
+        text-decoration: underline;
+      }
+
+      .hn__blog-item .hn__btn:hover {
+        color: var(--global-color-997ffda);
+        cursor: pointer;
+      }
+
+      .hn__contact-container {
+        background-image: linear-gradient(192deg, var(--global-color-07e9d91) 0%, var(--global-color-997ffda) 100%);
+      }
+
+      .hn__contact-section {
+        display: flex;
+      }
+
+      .hn__contact-section .hn__section-title-wrapper {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hn__contact-section .hn__introduction-title {
+        margin-top: 15px;
+        color: var(--global-color-accent);
+      }
+
+      .hn__contact-section .hn__contact-paragraph {
+        margin-top: 15px;
+        width: 82%;
+      }
+
+      .hn__contact-info-list {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 35px;
+      }
+
+      .hn__contact-info-item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hn__contact-info-title-wrapper {
+        display: flex;
+        gap: 8px;
+      }
+
+      .hn__contact-info-title-wrapper .hn__circle-icon,
+      .hn__contact-info-title {
+        color: var(--global-color-text);
+      }
+
+      .hn__contact-info-title {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-style: italic;
+        line-height: 20px;
+      }
+
+      .hn__contact-info {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        color: var(--global-color-accent);
+        text-decoration: none;
+      }
+
+      .hn__contact-form {
+        width: 60%;
+        padding: 40px 35px;
+        background-color: #ffffffbd;
+      }
+
+      .hn__contact-form-inner {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+
+      .hn__contact-form-title {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 50px;
+        color: var(--global-color-text);
+      }
+
+      .hn__contact-form-description {
+        margin-top: 8px;
+        width: 80%;
+        color: var(--global-color-text);
+      }
+
+      .hn__group-input {
+        display: flex;
+        column-gap: 20px;
+      }
+
+      .hn__input-wrapper {
+        width: 100%;
+      }
+
+      .hn__input {
+        padding: 15px 2px;
+      }
+
+      .hn__input,
+      .hn__input::placeholder {
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        color: var(--global-color-text);
+        line-height: 22px;
+      }
+
+      .hn__input::placeholder {
+        text-transform: capitalize;
+      }
+
+      .hn__contact-form-input {
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--global-color-primary);
+      }
+
+      .hn__contact-form-submit-btn {
+        width: 100%;
+        margin-top: 40px;
+        padding: 16px 20px;
+      }
+
+      /* Responsive: Tablet Portraint and smaller devide */
+      @media (max-width: 1024px) {
+        .hn__btn {
+          padding: 10px 29px;
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__section-title {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__introduction-title {
+          font-size: 32px;
+          line-height: 40px;
+        }
+
+        .hn__section {
+          padding: 70px 20px;
+        }
+
+        .hn__introduction-container,
+        .hn__companies-trust-container {
+          border-bottom-left-radius: 25px;
+          border-bottom-right-radius: 25px;
+        }
+
+        /* Introduction section */
+        .hn__introduction-section {
+          padding: 150px 20px 70px;
+        }
+
+        .hn__sign-up-container .hn__title {
+          font-size: 50px;
+          line-height: 60px;
+        }
+
+        .hn__email-box .hn__sign-up-btn {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        .hn__email-box {
+          margin-top: 45px;
+        }
+
+        .hn__email-box .hn__input {
+          line-height: 18px;
+          width: 64%;
+          flex: unset;
+        }
+
+        .hn__benefit-box {
+          margin-top: 25px;
+          gap: 8px;
+          display: grid;
+        }
+
+        .hn__benefit-box .hn__benefit-item .hn__benefit-title {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        .hn__rating-box {
+          width: 75%;
+          margin-top: 25px;
+          padding: 15px 20px;
+        }
+
+        .hn__rating-box .hn__image-box {
+          padding: 10px 20px;
+        }
+
+        .hn__rating-box .hn__rating-title {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        .hn__image-container .hn__image-wrapper,
+        .hn__image-container .hn__message-container {
+          width: 95%;
+        }
+
+        .hn__image-container .hn__message-wrapper {
+          padding: 19px;
+        }
+
+        .hn__image-container .hn__message-wrapper:first-child {
+          top: 112px;
+          left: -67px;
+          width: 44%;
+        }
+
+        .hn__image-container .hn__message-wrapper:nth-child(2) {
+          top: 168px;
+          left: -121px;
+          width: 51%;
+        }
+
+        .hn__image-container .hn__message {
+          padding: 10px;
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__image-container .hn__message img {
+          bottom: -12px;
+          left: -17px;
+          width: 22px;
+          height: 22px;
+        }
+
+        .hn__companies-trust-section {
+          padding: 25px;
+        }
+
+        .hn__companies-trust-container {
+          padding-bottom: 0px;
+          padding-top: 42px;
+        }
+
+        .hn__banner .hn__banner-title {
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .swiper-slide {
+          height: 48px;
+        }
+
+        .swiper-slide img {
+          width: 48px;
+        }
+
+        .hn__flatform .hn__title {
+          line-height: 32px;
+          font-size: 26px;
+        }
+
+        .hn__flatform:nth-child(2) .hn__title {
+          line-height: 26px;
+          font-size: 20px;
+        }
+
+        .hn__about-section .hn__about-us {
+          width: 50%;
+        }
+
+        .hn__about-section .hn__demo-chat {
+          width: 50%;
+        }
+
+        .hn__about-section .hn__demo-chat {
+          padding-left: 70px;
+          padding-right: 70px;
+        }
+
+        .hn__demo-chat .hn__conversation img {
+          width: 70%;
+        }
+
+        .hn__demo-chat .hn__conversation.conversation-1 {
+          top: 100px;
+          left: 12px;
+        }
+
+        .hn__demo-chat .hn__background-image-wrapper {
+          top: unset;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+        }
+
+        .hn__demo-chat .hn__background-image {
+          top: unset;
+          right: 0;
+          bottom: 0;
+          width: 70%;
+        }
+
+        .hn__demo-chat .hn__background-image:first-child {
+          bottom: 120px;
+        }
+
+        .hn__demo-chat .hn__background-image:nth-child(2) {
+          top: unset;
+          bottom: 35px;
+        }
+
+        /* About section */
+        .hn__about-section .hn__introduction-title {
+          margin-top: 10px;
+        }
+
+        .hn__about-us > .hn__paragraph {
+          margin-top: 10px;
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__about-us .hn__benefit-wrapper {
+          column-gap: 20px;
+        }
+        .hn__benefit-title {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        /* Feature section */
+        .hn__features-section {
+          padding: 100px 20px !important;
+        }
+
+        .hn__feature-list:first-child {
+          padding-right: 28px;
+        }
+        .hn__feature-list:nth-of-type(2) {
+          padding-left: 28px;
+        }
+
+        .hn__feature-item {
+          padding: 0;
+        }
+        .hn__feature-item:first-child {
+          padding-bottom: 15px;
+        }
+        .hn__feature-item + .hn__feature-item {
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+
+        .hn__feature-item .hn__feature-title {
+          margin: 15px 0 6px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .hn__feature-item .hn__feature-description {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        /* Pricing section */
+        .hn__pricing-section .hn__paragraph {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__pricing-section .hn__premium-title {
+          margin-top: 30px;
+        }
+        .hn__pricing-section-inner {
+          width: 100%;
+        }
+
+        .hn__pricing-section .hn__premium-feature-list {
+          margin-top: 25px;
+          justify-content: center;
+          gap: 0 55px;
+        }
+
+        .hn__pricing-section .hn__premium-feature-title {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__pricing-section .hn__premium-feature-image {
+          width: 38px;
+          height: 38px;
+        }
+
+        .hn__pricing-section .hn__price {
+          font-size: 26px;
+
+          line-height: 32px;
+        }
+
+        .hn__pricing-section .hn__pricing-title {
+          font-size: 20px;
+
+          line-height: 26px;
+        }
+
+        .hn__pricing-item:first-child .hn__pricing-description {
+          width: 74%;
+        }
+
+        .hn__pricing-item:nth-child(2) .hn__pricing-description {
+          width: 79%;
+        }
+
+        .hn__pricing-section .hn__price-wrapper .hn__paragraph {
+          padding-top: 10px;
+        }
+
+        /* Integration section */
+        .hn__integration-section {
+          align-items: flex-end;
+        }
+
+        .hn__blog-section .hn__section-title-wrapper {
+          width: 52%;
+        }
+
+        .hn__integration-section .hn__paragraph {
+          width: 48%;
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        /* Social section */
+
+        .hn__socials-section {
+          padding: 100px 0 150px !important;
+        }
+
+        .hn__socials-section .hn__title {
+          line-height: 140px;
+          font-size: 180px;
+        }
+
+        .hn__socials-section .hn__social-list {
+          position: absolute;
+          top: 100px;
+          left: 0;
+          bottom: 150px;
+          right: 0;
+          z-index: 1;
+        }
+
+        .hn__socials-section .hn__social-title {
+          padding: 10px 15px;
+
+          font-size: 16px;
+
+          line-height: 20px;
+        }
+
+        .hn__socials-section .hn__social-item.twitter {
+          right: 216px;
+          bottom: -96px;
+        }
+
+        .hn__socials-section .hn__social-item.instagram {
+          right: 70px;
+          bottom: 10px;
+        }
+        .hn__socials-section .hn__social-item.slack {
+          right: 132px;
+          top: -28px;
+          flex-direction: row-reverse;
+        }
+        .hn__socials-section .hn__social-item.facebook {
+          left: 336px;
+          bottom: 8px;
+          flex-direction: row-reverse;
+        }
+        .hn__socials-section .hn__social-item.gmail {
+          left: 192px;
+          bottom: -90px;
+        }
+        .hn__socials-section .hn__social-item.whatsapp {
+          left: 60px;
+          bottom: 4px;
+        }
+        .hn__socials-section .hn__social-item.dropbox {
+          left: 360px;
+          top: -84px;
+          flex-direction: row-reverse;
+        }
+        .hn__socials-section .hn__social-item.youtube {
+          flex-direction: row-reverse;
+          left: 130px;
+          top: -24px;
+        }
+
+        /* Get down load section */
+        .hn__get-download-section {
+          padding-top: 40px !important;
+          padding-bottom: 0 !important;
+        }
+        .hn__get-download-section .hn__paragraph {
+          width: 100%;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        .hn__get-download-section .hn__paragraph {
+          margin-top: 10px;
+        }
+        .hn__get-download-section .hn__button-group {
+          margin-top: 20px;
+        }
+
+        .hn__get-download-section .hn__get-download-image-wrapper {
+          justify-content: flex-end;
+          justify-content: center;
+          padding: 0 20px;
+        }
+        .hn__get-download-section .hn__get-download-image {
+          width: 100%;
+        }
+
+        /* Blog section */
+        .hn__blog-section {
+          padding-bottom: 30px !important;
+          padding-top: 70px !important;
+        }
+
+        .hn__blog-list-section {
+          padding-top: 0 !important;
+        }
+
+        .hn__blog-list {
+          gap: 20px;
+        }
+
+        .hn__blog-information-item {
+          font-size: 12px;
+          line-height: 16px;
+        }
+
+        .hn__blog-title {
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .hn__blog-short-description {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__image-container .hn__image-wrapper,
+        .hn__flatform,
+        .hn__blog-item,
+        .hn__blog-item .hn__blog-featured-image,
+        .hn__contact-form {
+          border-radius: 20px;
+        }
+
+        /* Get in touch section */
+        .hn__contact-section .hn__introduction-title {
+          margin-top: 10px;
+        }
+
+        .hn__contact-section .hn__contact-paragraph {
+          margin-top: 10px;
+          width: 93%;
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__contact-info-list {
+          margin-top: 40px;
+          row-gap: 25px;
+        }
+
+        .hn__contact-info-title {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__contact-info {
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        .hn__contact-form {
+          width: 60%;
+          padding: 30px 20px;
+        }
+
+        .hn__contact-form-title {
+          font-size: 26px;
+          line-height: 32px;
+        }
+        .hn__contact-form-description {
+          width: 100%;
+          line-height: 18px;
+          font-size: 14px;
+        }
+
+        .hn__contact-form-inner {
+          margin-top: 15px;
+          row-gap: 15px;
+        }
+
+        .hn__input,
+        .hn__input::placeholder {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .hn__contact-form-submit-btn {
+          margin-top: 35px;
+          padding: 16px 20px !important;
+        }
+      }
+
+      /* Responsive: Mobile */
+      @media (max-width: 768px) {
+        .hn__introduction-title {
+          font-size: 30px;
+          line-height: 38px;
+        }
+
+        /* Introduction section */
+        .hn__sign-up-container {
+          width: 100%;
+        }
+        .hn__introduction-section {
+          padding: 130px 20px 60px;
+          flex-direction: column;
+          row-gap: 50px;
+        }
+        .hn__sign-up-container .hn__title {
+          font-size: 48px;
+          line-height: 58px;
+        }
+        .hn__email-box .hn__input {
+          width: 61%;
+        }
+        .hn__benefit-box {
+          margin-top: 30px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .hn__benefit-box .hn__benefit-item {
+          width: 45%;
+        }
+
+        .hn__rating-box {
+          width: 80%;
+          margin-top: 35px;
+        }
+
+        .hn__rating-box .hn__image-box {
+          padding: 10px 18px;
+        }
+
+        .hn__image-container .hn__image-wrapper,
+        .hn__image-container .hn__message-container {
+          width: 100%;
+          padding-left: 50px;
+        }
+
+        .hn__image-container .hn__image-wrapper img {
+          border-radius: 20px;
+        }
+
+        .hn__image-container .hn__message-wrapper:first-child {
+          top: 50px;
+          left: 25px;
+          width: 52%;
+        }
+
+        .hn__image-container .hn__message-wrapper:nth-child(2) {
+          top: 115px;
+          left: 6px;
+          width: 61%;
+        }
+
+        /* Company trust section */
+        .hn__companies-trust-section {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .hn__banner {
+          flex-direction: column;
+          row-gap: 20px;
+        }
+        .hn__banner .hn__logo-section {
+          width: 100%;
+        }
+        .hn__banner .hn__banner-title {
+          width: 100%;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+        }
+
+        /* Platform section */
+        .hn__platforms-section {
+          padding-top: 50px !important;
+          padding-bottom: 50px !important;
+          flex-direction: column;
+          row-gap: 35px;
+        }
+
+        .hn__flatform:first-child {
+          width: 100%;
+          padding: 30px 15px 0;
+        }
+
+        .hn__flatform .hn__title {
+          line-height: 26px;
+          font-size: 24px;
+        }
+
+        .hn__flatform:first-child .platform-image {
+          margin-top: 30px;
+        }
+
+        .hn__flatform:first-child .hn__background-image:first-of-type {
+          width: 104px;
+        }
+
+        .hn__flatform:first-child .hn__background-image:nth-of-type(2) {
+          width: 80px;
+        }
+
+        .hn__flatform:nth-child(2) .hn__background-image:first-of-type {
+          width: 134px;
+        }
+
+        .hn__flatform:nth-child(2) .hn__background-image:nth-of-type(2) {
+          width: 100px;
+        }
+
+        .hn__flatform:nth-child(2) {
+          width: 100%;
+          padding: 30px 20px;
+        }
+
+        .hn__flatform:nth-child(2) .hn__title {
+          padding-right: 30px;
+          line-height: 27px;
+          font-size: 22px;
+        }
+
+        /* About us section */
+        .hn__about-container {
+          background-image: linear-gradient(228deg, var(--global-color-07e9d91) 50%, var(--global-color-997ffda) 85%);
+        }
+
+        .hn__about-section {
+          padding-top: 50px !important;
+          padding-bottom: 50px !important;
+          flex-direction: column;
+          row-gap: 50px;
+        }
+
+        .hn__about-section .hn__about-us {
+          width: 100%;
+        }
+
+        .hn__about-section .hn__introduction-title {
+          font-size: 30px;
+          line-height: 38px;
+        }
+
+        .hn__about-us .hn__benefit-wrapper {
+          margin-top: 25px;
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .hn__about-u .hn__benefit-icon {
+          height: 16px;
+          width: 16px;
+        }
+
+        .hn__about-us .hn__benefit-wrapper {
+          row-gap: 12px;
+        }
+
+        .hn__about-us .hn__button-group {
+          margin-top: 30px;
+        }
+        .hn__about-section .hn__demo-chat {
+          width: 100%;
+        }
+
+        .hn__demo-chat .hn__conversation.conversation-1 {
+          top: 52px;
+          left: 0px;
+        }
+
+        .hn__demo-chat .hn__conversation.conversation-2 {
+          bottom: 36px;
+          right: 0px;
+        }
+
+        .hn__demo-chat .hn__conversation.conversation-2 img {
+          transform: translateX(36%);
+        }
+
+        /* Feature section */
+        .hn__features-section {
+          /* padding: 100px 20px !important; */
+          padding-top: 50px !important;
+          padding-bottom: 50px !important;
+        }
+
+        .hn__features-section .hn__introduction-title {
+          text-align: center;
+        }
+
+        .hn__features-section .hn__introduction-title:first-child {
+          display: none;
+        }
+
+        .hn__feature-section-title {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hn__features-section .hn__feature-wrapper {
+          flex-direction: column;
+          margin-top: 35px;
+          row-gap: 35px;
+        }
+
+        .hn__feature-list {
+          width: 100%;
+          padding: 0 54px !important;
+        }
+
+        .hn__feature-item .hn__feature-description {
+          line-height: 14px;
+        }
+
+        .hn__features-section .hn__phone-image-wrapper {
+          width: 100%;
+        }
+
+        /* Pricing section */
+        .hn__pricing-section {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+
+        .hn__premium-feature-list {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px !important;
+        }
+
+        .hn__pricing-section .hn__pricing-list {
+          margin-top: 40px;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 25px;
+        }
+
+        .hn__pricing-section .hn__pricing-item {
+          padding: 30px 25px;
+        }
+
+        .hn__pricing-section .hn__pricing-title {
+          font-size: 22px;
+          line-height: 27px;
+        }
+        .hn__pricing-section .hn__price-wrapper {
+          margin: 8px 0 16px;
+        }
+
+        .hn__pricing-section .hn__benefit-icon {
+          height: 20px;
+          width: 20px;
+        }
+
+        /* Intergration section */
+        .hn__integration-section {
+          padding-top: 50px;
+          padding-bottom: 30px;
+          flex-direction: column;
+        }
+
+        .hn__integration-section .hn__section-title-wrapper {
+          width: 100%;
+        }
+
+        .hn__integration-section .hn__paragraph {
+          width: 100%;
+          margin-top: 15px;
+          padding-left: 0;
+        }
+
+        /* Social section */
+        .hn__socials-section {
+          padding: 60px 20px 90px !important;
+        }
+
+        .hn__socials-section .hn__title {
+          line-height: 90px;
+          font-size: 85px;
+        }
+
+        .hn__socials-section .hn__social-list {
+          top: 60px;
+          bottom: 90px;
+          left: 20px;
+          right: 20px;
+        }
+
+        .hn__social-image {
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+        }
+
+        .hn__socials-section .hn__social-title {
+          padding: 5px 5px;
+          font-size: 10px;
+          line-height: 10px;
+        }
+
+        .hn__socials-section .hn__social-title {
+          margin-top: 0px;
+        }
+
+        .hn__socials-section .hn__social-item.whatsapp {
+          left: 0;
+          bottom: 20px;
+        }
+
+        .hn__socials-section .hn__social-item.twitter {
+          right: 76px;
+          bottom: -35px;
+        }
+
+        .hn__socials-section .hn__social-item.instagram {
+          right: 50px;
+          bottom: 28px;
+        }
+
+        .hn__socials-section .hn__social-item.slack {
+          right: 40px;
+          top: 0;
+        }
+
+        .hn__socials-section .hn__social-item.facebook {
+          left: 105px;
+          bottom: 25px;
+        }
+
+        .hn__socials-section .hn__social-item.dropbox {
+          left: 115px;
+          top: -33px;
+        }
+
+        .hn__socials-section .hn__social-item.gmail {
+          left: 40px;
+          bottom: -35px;
+        }
+
+        .hn__socials-section .hn__social-item.youtube {
+          left: 20px;
+          top: 0;
+        }
+
+        /* Get download section */
+        .hn__get-download-section .hn__section-title-wrapper {
+          width: 100%;
+        }
+        .hn__get-download-section {
+          flex-direction: column;
+          row-gap: 40px;
+        }
+        .hn__get-download-section .hn__get-download-image-wrapper {
+          width: 100%;
+        }
+
+        /* Blog section */
+
+        .hn__blog-section {
+          /* padding-bottom: 30px !important; */
+          padding-top: 50px !important;
+          flex-direction: column;
+          row-gap: 30px;
+        }
+
+        .hn__blog-section .hn__section-title-wrapper {
+          width: 100%;
+        }
+
+        .hn__blog-section .hn__btn-wrapper {
+          width: 100%;
+        }
+
+        .hn__blog-section .hn__btn {
+          width: 100%;
+        }
+
+        /* Blog list section */
+        .hn__blog-list-section {
+          margin-top: 10px;
+          padding-bottom: 50px;
+        }
+
+        .hn__blog-list {
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        .hn__blog-featured-image-wrapper {
+          height: 200px;
+        }
+
+        .hn__blog-item-inner {
+          padding: 20px 20px 25px;
+        }
+
+        /* Get in touch section */
+        .hn__contact-section {
+          padding-top: 50px !important;
+          padding-bottom: 50px !important;
+          flex-direction: column;
+          row-gap: 50px;
+        }
+
+        .hn__contact-section .hn__section-title-wrapper {
+          width: 100%;
+        }
+
+        .hn__contact-form {
+          width: 100%;
+        }
+
+        .hn__group-input {
+          row-gap: 20px;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hn__main">
+      <div class="hn__container hn__introduction-container">
+        <div class="hn__section hn__introduction-section">
+          <div class="hn__sign-up-container">
+            <h2 class="hn__title hn__fade-in-left animate-on-scroll">Unleash the Power of AI</h2>
+            <h2 class="hn__title gradient hn__fade-in-left animate-on-scroll">Chatbot</h2>
+            <div class="hn__email-box">
+              <input id="hn__trial-input--email" type="email" class="hn__input" placeholder="Enter your email" />
+              <button class="hn__sign-up-btn hn__btn">Start Free Trial</button>
+            </div>
+            <ul class="hn__benefit-box">
+              <li class="hn__benefit-item">
+                <i class="hn__benefit-icon">
+                  <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                  <svg
+                    fill="currentColor"
+                    width="16px"
+                    height="16px"
+                    viewBox="0 0 24 24"
+                    id="check"
+                    data-name="Flat Color"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon flat-color"
+                  >
+                    <path
+                      id="primary"
+                      d="M10,18a1,1,0,0,1-.71-.29l-5-5a1,1,0,0,1,1.42-1.42L10,15.59l8.29-8.3a1,1,0,1,1,1.42,1.42l-9,9A1,1,0,0,1,10,18Z"
+                    ></path>
+                  </svg>
+                </i>
+                <span class="hn__benefit-title">Sign up for free</span>
+              </li>
+              <li class="hn__benefit-item">
+                <i class="hn__benefit-icon">
+                  <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                  <svg
+                    fill="currentColor"
+                    width="16px"
+                    height="16px"
+                    viewBox="0 0 24 24"
+                    id="check"
+                    data-name="Flat Color"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon flat-color"
+                  >
+                    <path
+                      id="primary"
+                      d="M10,18a1,1,0,0,1-.71-.29l-5-5a1,1,0,0,1,1.42-1.42L10,15.59l8.29-8.3a1,1,0,1,1,1.42,1.42l-9,9A1,1,0,0,1,10,18Z"
+                    ></path>
+                  </svg>
+                </i>
+                <span class="hn__benefit-title">Free 14-day trial</span>
+              </li>
+              <li class="hn__benefit-item">
+                <i class="hn__benefit-icon">
+                  <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                  <svg
+                    fill="currentColor"
+                    width="16px"
+                    height="16px"
+                    viewBox="0 0 24 24"
+                    id="check"
+                    data-name="Flat Color"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon flat-color"
+                  >
+                    <path
+                      id="primary"
+                      d="M10,18a1,1,0,0,1-.71-.29l-5-5a1,1,0,0,1,1.42-1.42L10,15.59l8.29-8.3a1,1,0,1,1,1.42,1.42l-9,9A1,1,0,0,1,10,18Z"
+                    ></path>
+                  </svg>
+                </i>
+                <span class="hn__benefit-title">No credit card required</span>
+              </li>
+            </ul>
+            <div class="hn__rating-box hn__fade-in-left">
+              <div class="hn__image-box">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000003303.png"
+                  alt="Google Image"
+                />
+              </div>
+              <div class="hn__rating-wrapper">
+                <ul class="hn__rating-star">
+                  <li class="hn__rating-star-item">
+                    <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                    <svg
+                      fill="currentColor"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      id="star"
+                      data-name="Flat Color"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon flat-color"
+                    >
+                      <path
+                        id="primary"
+                        d="M22,9.81a1,1,0,0,0-.83-.69l-5.7-.78L12.88,3.53a1,1,0,0,0-1.76,0L8.57,8.34l-5.7.78a1,1,0,0,0-.82.69,1,1,0,0,0,.28,1l4.09,3.73-1,5.24A1,1,0,0,0,6.88,20.9L12,18.38l5.12,2.52a1,1,0,0,0,.44.1,1,1,0,0,0,1-1.18l-1-5.24,4.09-3.73A1,1,0,0,0,22,9.81Z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li class="hn__rating-star-item">
+                    <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                    <svg
+                      fill="currentColor"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      id="star"
+                      data-name="Flat Color"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon flat-color"
+                    >
+                      <path
+                        id="primary"
+                        d="M22,9.81a1,1,0,0,0-.83-.69l-5.7-.78L12.88,3.53a1,1,0,0,0-1.76,0L8.57,8.34l-5.7.78a1,1,0,0,0-.82.69,1,1,0,0,0,.28,1l4.09,3.73-1,5.24A1,1,0,0,0,6.88,20.9L12,18.38l5.12,2.52a1,1,0,0,0,.44.1,1,1,0,0,0,1-1.18l-1-5.24,4.09-3.73A1,1,0,0,0,22,9.81Z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li class="hn__rating-star-item">
+                    <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                    <svg
+                      fill="currentColor"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      id="star"
+                      data-name="Flat Color"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon flat-color"
+                    >
+                      <path
+                        id="primary"
+                        d="M22,9.81a1,1,0,0,0-.83-.69l-5.7-.78L12.88,3.53a1,1,0,0,0-1.76,0L8.57,8.34l-5.7.78a1,1,0,0,0-.82.69,1,1,0,0,0,.28,1l4.09,3.73-1,5.24A1,1,0,0,0,6.88,20.9L12,18.38l5.12,2.52a1,1,0,0,0,.44.1,1,1,0,0,0,1-1.18l-1-5.24,4.09-3.73A1,1,0,0,0,22,9.81Z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li class="hn__rating-star-item">
+                    <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                    <svg
+                      fill="currentColor"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      id="star"
+                      data-name="Flat Color"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon flat-color"
+                    >
+                      <path
+                        id="primary"
+                        d="M22,9.81a1,1,0,0,0-.83-.69l-5.7-.78L12.88,3.53a1,1,0,0,0-1.76,0L8.57,8.34l-5.7.78a1,1,0,0,0-.82.69,1,1,0,0,0,.28,1l4.09,3.73-1,5.24A1,1,0,0,0,6.88,20.9L12,18.38l5.12,2.52a1,1,0,0,0,.44.1,1,1,0,0,0,1-1.18l-1-5.24,4.09-3.73A1,1,0,0,0,22,9.81Z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li class="hn__rating-star-item no-fill">
+                    <!-- License: PD. Made by Mary Akveo: https://maryakveo.com/ -->
+                    <svg
+                      fill="currentColor"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      id="star"
+                      data-name="Flat Color"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon flat-color"
+                    >
+                      <path
+                        id="primary"
+                        d="M22,9.81a1,1,0,0,0-.83-.69l-5.7-.78L12.88,3.53a1,1,0,0,0-1.76,0L8.57,8.34l-5.7.78a1,1,0,0,0-.82.69,1,1,0,0,0,.28,1l4.09,3.73-1,5.24A1,1,0,0,0,6.88,20.9L12,18.38l5.12,2.52a1,1,0,0,0,.44.1,1,1,0,0,0,1-1.18l-1-5.24,4.09-3.73A1,1,0,0,0,22,9.81Z"
+                      ></path>
+                    </svg>
+                  </li>
+                </ul>
+                <p class="hn__rating-title">4.5/5.0 (from 20k reviews)</p>
+              </div>
+            </div>
+          </div>
+          <div class="hn__image-container">
+            <div class="hn__image-wrapper">
+              <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000007325-1.jpg" alt="AI image" />
+            </div>
+            <div class="hn__message-container">
+              <div class="hn__message-wrapper hn__zoom-in-down animate-on-scroll">
+                <div class="hn__message">
+                  <span> Hi! How can i help you? </span>
+                </div>
+              </div>
+              <div class="hn__message-wrapper hn__zoom-in-down animate-on-scroll">
+                <div class="hn__message">
+                  <span> Hi Skilabot! I need your help. </span>
+                  <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000007324.png" alt="Cái nơ" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container hn__companies-trust-container">
+        <div class="hn__section hn__companies-trust-section">
+          <div class="hn__banner">
+            <h4 class="hn__banner-title">These companies trust AI Skilabot</h4>
+            <div class="hn__logo-section">
+              <div class="swiper logo-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-84.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-88.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-87.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-86.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-88.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-87.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-86.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-83.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-90.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-88.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-87.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-86.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-83.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-90.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-83.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-90.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-88.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-87.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-86.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-83.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-90.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-83.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-90.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-88.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__platforms-section">
+          <div class="hn__flatform">
+            <img
+              class="hn__background-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-258.png"
+              alt="round circle"
+            />
+            <img
+              class="hn__background-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-257.png"
+              alt="round circle"
+            />
+            <h2 class="hn__title">Unleash the Potential of</h2>
+            <div class="hn__title-group">
+              <h2 class="hn__title gradient">Intelligent</h2>
+              <h2 class="hn__title">Conversations</h2>
+            </div>
+            <img
+              class="platform-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000007202.jpg"
+              alt="Window platform"
+            />
+          </div>
+          <div class="hn__flatform">
+            <img
+              class="hn__background-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-260.png"
+              alt="round circle"
+            />
+            <img
+              class="hn__background-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-259.png"
+              alt="round circle"
+            />
+            <h2 class="hn__title">Connect, chat, and explore with Skilabot</h2>
+            <img
+              class="platform-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-100.png"
+              alt="Window platform"
+            />
+            <a href="#" class="hn__btn download-app-btn">Download the App!</a>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container hn__about-container">
+        <div class="hn__section hn__about-section">
+          <div class="hn__about-us">
+            <!-- width 55 -->
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title">About Us</h5>
+            </div>
+            <h2 class="hn__introduction-title">Discover Our AI Chatbot Assistant - Skilabot</h2>
+            <p class="hn__paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam dolor sit amet, consectetur adipiscing elit, sed do
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam dolor sit.
+            </p>
+            <ul class="hn__benefit-wrapper">
+              <li class="hn__benefit-item">
+                <svg
+                  class="hn__benefit-icon"
+                  fill="#ffffff"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill-rule: evenodd;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    id="checkmark"
+                    class="cls-1"
+                    d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                    transform="translate(-1212 -288)"
+                  />
+                </svg>
+                <h5 class="hn__benefit-title hn__paragraph">Productivity boost</h5>
+              </li>
+              <li class="hn__benefit-item">
+                <svg
+                  class="hn__benefit-icon"
+                  fill="#ffffff"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill-rule: evenodd;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    id="checkmark"
+                    class="cls-1"
+                    d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                    transform="translate(-1212 -288)"
+                  />
+                </svg>
+                <h5 class="hn__benefit-title hn__paragraph">Creative collaboration</h5>
+              </li>
+              <li class="hn__benefit-item">
+                <svg
+                  class="hn__benefit-icon"
+                  fill="#ffffff"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill-rule: evenodd;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    id="checkmark"
+                    class="cls-1"
+                    d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                    transform="translate(-1212 -288)"
+                  />
+                </svg>
+                <h5 class="hn__benefit-title hn__paragraph">Learning and exploration</h5>
+              </li>
+              <li class="hn__benefit-item">
+                <svg
+                  class="hn__benefit-icon"
+                  fill="#ffffff"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill-rule: evenodd;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    id="checkmark"
+                    class="cls-1"
+                    d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                    transform="translate(-1212 -288)"
+                  />
+                </svg>
+                <h5 class="hn__benefit-title hn__paragraph">Personalized interactions</h5>
+              </li>
+            </ul>
+            <div class="hn__button-group">
+              <a href="#" class="hn__btn">Let's chat</a>
+              <a href="#" class="hn__btn">Learn More</a>
+            </div>
+          </div>
+          <div class="hn__demo-chat">
+            <img
+              class="hn__phone-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/chatbot.png"
+              alt="Phone"
+            />
+            <div class="hn__conversation conversation-1 hn__fade-in-left animate-on-scroll">
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000007206.png"
+                alt="Chat Conversations"
+              />
+            </div>
+
+            <div class="hn__conversation conversation-2 hn__fade-in-right animate-on-scroll">
+              <img src="http://sg1.homenest.media/wp-content/uploads/2025/12/history-1.png" alt="History" />
+            </div>
+
+            <div class="hn__background-image-wrapper">
+              <img
+                class="hn__background-image"
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-262.png"
+                alt="round circle"
+              />
+              <img
+                class="hn__background-image"
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Ellipse-261.png"
+                alt="round circle"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__features-section">
+          <div class="hn__horizontal">
+            <div class="hn__circle-icon">
+              <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="currentColor"
+                  d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                />
+              </svg>
+            </div>
+            <div class="hn__circle-icon">
+              <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="currentColor"
+                  d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                />
+              </svg>
+            </div>
+            <h5 class="hn__section-title hn__title gradient">Features</h5>
+          </div>
+          <h2 class="hn__introduction-title">Enhanced Customer Experience</h2>
+          <div class="hn__horizontal hn__feature-section-title">
+            <h2 class="hn__introduction-title">with</h2>
+            <h2 class="hn__introduction-title hn__title gradient">Innovative Features</h2>
+          </div>
+          <div class="hn__feature-wrapper">
+            <ul class="hn__feature-list">
+              <li class="hn__feature-item hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-91.png"
+                  alt="API Integration"
+                />
+                <h3 class="hn__feature-title">API Integration</h3>
+                <p class="hn__feature-description">
+                  Ability to integrate with various platforms and services for seamless user experience.
+                </p>
+              </li>
+              <li class="hn__feature-item hn__fade-in animate-on-scroll hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-92.png"
+                  alt="Multilingual Support"
+                />
+                <h3 class="hn__feature-title">Multilingual Support</h3>
+                <p class="hn__feature-description">
+                  Engage with users worldwide using auto-translated messages, ensuring fluid conversations in multiple
+                  languages.
+                </p>
+              </li>
+              <li class="hn__feature-item hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-2025-02-19T155146.973.png"
+                  alt="Team Collaboration"
+                />
+                <h3 class="hn__feature-title">Team Collaboration</h3>
+                <p class="hn__feature-description">
+                  Enabling agents to work together seamlessly within the dashboard for smooth customer support
+                  management.
+                </p>
+              </li>
+            </ul>
+            <div class="hn__phone-image-wrapper">
+              <img
+                class="hn__phone-image"
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Onboarding.png"
+                alt="Feature image"
+              />
+            </div>
+            <ul class="hn__feature-list">
+              <li class="hn__feature-item hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-93.png"
+                  alt="Customer Insights"
+                />
+                <h3 class="hn__feature-title">Customer Insights</h3>
+                <p class="hn__feature-description">
+                  Leverage AI to glean valuable insights into customer preferences, ensuring an engaging support
+                  experience every time.
+                </p>
+              </li>
+              <li class="hn__feature-item hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-94.png"
+                  alt="Data Analytics"
+                />
+                <h3 class="hn__feature-title">Data Analytics</h3>
+                <p class="hn__feature-description">
+                  Provides insights into user behaviors and preferences, helping businesses make data-driven decisions.
+                </p>
+              </li>
+              <li class="hn__feature-item hn__fade-in animate-on-scroll">
+                <img
+                  class="hn__feature-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-95.png"
+                  alt="AI Training Center"
+                />
+                <h3 class="hn__feature-title">AI Training Center</h3>
+                <p class="hn__feature-description">
+                  Continuously improve your chatbot’s intelligence, dedicated space to train responses for better
+                  interactions.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container hn__pricing-container">
+        <div class="hn__section hn__pricing-section">
+          <div class="hn__pricing-section-inner">
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title hn__title gradient">Skilabot Pricing</h5>
+            </div>
+            <h2 class="hn__introduction-title">Empower your chatting</h2>
+            <div class="hn__horizontal">
+              <h2 class="hn__introduction-title">with</h2>
+              <h2 class="hn__introduction-title hn__title gradient">Premium</h2>
+            </div>
+            <h6 class="hn__premium-title hn__paragraph">All premium plans include:</h6>
+            <ul class="hn__premium-feature-list">
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000006146.png"
+                  alt="Paraphraser"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">Paraphraser</h6>
+              </li>
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000006147.png"
+                  alt="Grammar Checker"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">Grammar Checker</h6>
+              </li>
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Frame-96.png"
+                  alt="AI Detector"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">AI Detector</h6>
+              </li>
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-2025-02-19T163107.929.png"
+                  alt="Summarizer"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">Summarizer</h6>
+              </li>
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000006148.png"
+                  alt="Translator"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">Translator</h6>
+              </li>
+              <li class="hn__premium-feature-item hn__fade-in animate-on-scroll">
+                <img
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000006149.png"
+                  alt="AI Flow"
+                  class="hn__premium-feature-image"
+                />
+                <h6 class="hn__premium-feature-title hn__paragraph">AI Flow</h6>
+              </li>
+            </ul>
+            <ul class="hn__pricing-list">
+              <!-- Free -->
+              <li class="hn__pricing-item free">
+                <h2 class="hn__pricing-title">Basic</h2>
+                <p class="hn__paragraph hn__card-require hn__title gradient">No credit card required</p>
+                <div class="hn__price-wrapper">
+                  <h2 class="hn__price">$0</h2>
+                  <p class="hn__paragraph">USD / per month</p>
+                </div>
+                <a href="#" class="hn__btn">Sign up for free</a>
+                <p class="hn__paragraph hn__pricing-description">
+                  Fix errors, strengthen your work and grt help brainstorming
+                </p>
+                <div class="hn__divider"></div>
+
+                <!-- Benefit free version -->
+                <ul class="hn__benefit-wrapper">
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#E8547A"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">1,000 monthly interactions</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#E8547A"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Basic automated responses</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#E8547A"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Integration messaging platform</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#E8547A"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Customizable chatbot personality</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#E8547A"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Standard reporting and analytics</h5>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Premium -->
+              <li class="hn__pricing-item premium">
+                <h2 class="hn__pricing-title">Premium</h2>
+                <p class="hn__paragraph hn__card-require">3-day money-back guarantee</p>
+                <div class="hn__price-wrapper">
+                  <h2 class="hn__price">$09</h2>
+                  <p class="hn__paragraph">USD / per month, billed annually</p>
+                </div>
+                <a href="#" class="hn__btn">Sign up for free</a>
+                <p class="hn__paragraph hn__pricing-description">
+                  Feel confident your writing is clear, impactful and flawless
+                </p>
+                <div class="hn__divider"></div>
+
+                <!-- Premium version benefits -->
+                <ul class="hn__benefit-wrapper">
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">1,000 monthly interactions</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Basic automated responses</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Integration messaging platform</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Customizable chatbot personality</h5>
+                  </li>
+                  <li class="hn__benefit-item">
+                    <svg
+                      class="hn__benefit-icon"
+                      fill="#FFFFFF"
+                      width="20px"
+                      height="20px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1 {
+                            fill-rule: evenodd;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        id="checkmark"
+                        class="cls-1"
+                        d="M1224,312a12,12,0,1,1,3.32-23.526l-1.08,1.788A10,10,0,1,0,1234,300a9.818,9.818,0,0,0-.59-3.353l1.27-2.108A11.992,11.992,0,0,1,1224,312Zm0.92-8.631a0.925,0.925,0,0,1-.22.355,0.889,0.889,0,0,1-.72.259,0.913,0.913,0,0,1-.94-0.655l-3.82-3.818a0.9,0.9,0,0,1,1.27-1.271l3.25,3.251,7.39-10.974a1,1,0,0,1,1.38-.385,1.051,1.051,0,0,1,.36,1.417Z"
+                        transform="translate(-1212 -288)"
+                      />
+                    </svg>
+                    <h5 class="hn__benefit-title hn__paragraph">Standard reporting and analytics</h5>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__integration-section">
+          <div class="hn__section-title-wrapper">
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title hn__title gradient">Integration</h5>
+            </div>
+            <div class="hn__horizontal">
+              <h2 class="hn__introduction-title">Conversational</h2>
+              <h2 class="hn__introduction-title hn__title gradient">Chatbot</h2>
+            </div>
+          </div>
+          <p class="hn__paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam.
+          </p>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__socials-section">
+          <h1 class="hn__title">Skilabot</h1>
+          <ul class="hn__social-list">
+            <li class="hn__social-item hn__zoom-in animate-on-scroll youtube">
+              <h4 class="hn__social-title">Youtube</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Youtube.png"
+                alt="Youtube"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll whatsapp">
+              <h4 class="hn__social-title">WhatsApp</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Whatsapp-1.png"
+                alt="WhatsApp"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll gmail">
+              <h4 class="hn__social-title">Gmail</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Gmail-1.png"
+                alt="Gmail"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll dropbox">
+              <h4 class="hn__social-title">Dropbox</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/X.png"
+                alt="Dropbox"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll facebook">
+              <h4 class="hn__social-title">Facebook</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Facebook.png"
+                alt="Facebook"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll slack">
+              <h4 class="hn__social-title">Slack</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Messenger.png"
+                alt="Slack"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll instagram">
+              <h4 class="hn__social-title">Instagram</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/Instagram-1.png"
+                alt="Instagram"
+                class="hn__social-image"
+              />
+            </li>
+            <li class="hn__social-item hn__zoom-in animate-on-scroll twitter">
+              <h4 class="hn__social-title">Twitter</h4>
+              <img
+                src="http://sg1.homenest.media/wp-content/uploads/2025/12/X-1.png"
+                alt="Twitter"
+                class="hn__social-image"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="hn__container hn__get-download-container">
+        <div class="hn__section hn__get-download-section">
+          <div class="hn__section-title-wrapper">
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title hn__title">get Download</h5>
+            </div>
+            <h2 class="hn__introduction-title">Get Instant Assistance with Our AI-Powered Chatbot</h2>
+            <p class="hn__paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam dolor sit amet, consectetur adipiscing elit, sed do
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam dolor sit.
+            </p>
+            <div class="hn__button-group">
+              <a href="#" class="hn__btn">Let's chat</a>
+              <a href="#" class="hn__btn">Download the App!</a>
+            </div>
+          </div>
+          <div class="hn__get-download-image-wrapper">
+            <img
+              class="hn__get-download-image"
+              src="http://sg1.homenest.media/wp-content/uploads/2025/12/Group-1000007215.png"
+              alt="Get download image"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__blog-section">
+          <div class="hn__section-title-wrapper">
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title hn__title gradient">From Our Blog</h5>
+            </div>
+            <div class="hn__horizontal">
+              <h2 class="hn__introduction-title">Recent</h2>
+              <h2 class="hn__introduction-title hn__title gradient">News & Updates</h2>
+            </div>
+          </div>
+          <div class="hn__btn-wrapper">
+            <a class="hn__btn" href="#">More Articles</a>
+          </div>
+        </div>
+      </div>
+      <div class="hn__container">
+        <div class="hn__section hn__blog-list-section">
+          <ul class="hn__blog-list">
+            <li class="hn__blog-item">
+              <a href="#" class="hn__blog-featured-image-wrapper">
+                <img
+                  class="hn__blog-featured-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/blog-6.jpg"
+                  alt="How AI is Revolutionizing Customer Service"
+                />
+              </a>
+              <div class="hn__blog-item-inner">
+                <ul class="hn__blog-information-list">
+                  <li class="hn__blog-information-item"><span>By</span> ADMIN</li>
+                  <li class="hn__blog-information-item">February 19, 2025</li>
+                </ul>
+                <a href="#" class="hn__blog-title">How AI is Revolutionizing Customer Service</a>
+                <p class="hn__blog-short-description hn__paragraph">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Est, consectetur assumenda, aspernatur quam possimus quibusdam
+                  laudantium repellendus suscipit unde necessitatibus sint! Facilis inventore, fugit sit in iste iusto
+                  officia dicta.
+                </p>
+                <a class="hn__btn">Read More</a>
+              </div>
+            </li>
+            <li class="hn__blog-item">
+              <a href="#" class="hn__blog-featured-image-wrapper">
+                <img
+                  class="hn__blog-featured-image"
+                  src="http://sg1.homenest.media/wp-content/uploads/2025/12/blog-4-768x377-1.jpg"
+                  alt="How AI is Revolutionizing Customer Service"
+                />
+              </a>
+              <div class="hn__blog-item-inner">
+                <ul class="hn__blog-information-list">
+                  <li class="hn__blog-information-item"><span>By</span> ADMIN</li>
+                  <li class="hn__blog-information-item">February 19, 2025</li>
+                </ul>
+                <a href="#" class="hn__blog-title">How AI is Revolutionizing Customer Service</a>
+                <p class="hn__blog-short-description hn__paragraph">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis...
+                </p>
+                <a class="hn__btn">Read More</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="hn__container hn__contact-container">
+        <div class="hn__section hn__contact-section">
+          <div class="hn__section-title-wrapper">
+            <div class="hn__horizontal">
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <div class="hn__circle-icon">
+                <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill="currentColor"
+                    d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                  />
+                </svg>
+              </div>
+              <h5 class="hn__section-title hn__title">Get in touch</h5>
+            </div>
+            <h2 class="hn__introduction-title">Let's talk</h2>
+            <p class="hn__paragraph hn__contact-paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+            <ul class="hn__contact-info-list">
+              <li class="hn__contact-info-item">
+                <div class="hn__contact-info-title-wrapper">
+                  <div class="hn__circle-icon">
+                    <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill="currentColor"
+                        d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                      />
+                    </svg>
+                  </div>
+                  <h2 class="hn__contact-info-title">Phone</h2>
+                </div>
+                <a class="hn__contact-info" href="tel:+1(234)56789000">+1 (234) 567 890 00</a>
+              </li>
+              <li class="hn__contact-info-item">
+                <div class="hn__contact-info-title-wrapper">
+                  <div class="hn__circle-icon">
+                    <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill="currentColor"
+                        d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                      />
+                    </svg>
+                  </div>
+                  <h2 class="hn__contact-info-title">Mail</h2>
+                </div>
+                <a class="hn__contact-info" href="mailto:skilabot.info@gmail.com">skilabot.info@gmail.com</a>
+              </li>
+              <li class="hn__contact-info-item">
+                <div class="hn__contact-info-title-wrapper">
+                  <div class="hn__circle-icon">
+                    <svg viewBox="0 0 640 640" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill="currentColor"
+                        d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                      />
+                    </svg>
+                  </div>
+                  <h2 class="hn__contact-info-title">address</h2>
+                </div>
+                <p class="hn__contact-info" href="tel:+1(234)56789000">
+                  034 Erling Knolls, Lake Kenn<br />North Dakota 8902
+                </p>
+              </li>
+            </ul>
+          </div>
+          <form action="#" class="hn__contact-form">
+            <h2 class="hn__contact-form-title">Get in Touch</h2>
+            <p class="hn__paragraph hn__contact-form-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </p>
+
+            <div class="hn__contact-form-inner">
+              <div class="hn__group-input">
+                <div class="hn__input-wrapper hn__contact-form-input-wrapper">
+                  <input
+                    id="hn__contact-form-field--name"
+                    class="hn__input hn__contact-form-input"
+                    type="text"
+                    placeholder="your name"
+                  />
+                </div>
+                <div class="hn__input-wrapper hn__contact-form-input-wrapper">
+                  <input
+                    id="hn__contact-form-field--email"
+                    class="hn__input hn__contact-form-input"
+                    type="email"
+                    placeholder="your email"
+                  />
+                </div>
+              </div>
+              <div class="hn__input-wrapper hn__contact-form-input-wrapper">
+                <input
+                  id="hn__contact-form-field--subject"
+                  class="hn__input hn__contact-form-input"
+                  type="text"
+                  placeholder="subject"
+                />
+              </div>
+              <div class="hn__input-wrapper hn__contact-form-input-wrapper">
+                <textarea
+                  id="hn__contact-form-field--message"
+                  class="hn__input hn__contact-form-input"
+                  placeholder="write here message"
+                  rows="6"
+                  cols="30"
+                ></textarea>
+              </div>
+            </div>
+            <button type="submit" class="hn__btn hn__submit-btn hn__contact-form-submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.logo-swiper', {
+        slidesPerView: 6,
+        spaceBetween: 40,
+        loop: true,
+        autoplay: {
+          delay: 0,
+        },
+        speed: 1500, // tốc độ chạy, càng nhỏ càng nhanh
+        freeMode: {
+          enabled: true,
+          momentum: false, // không quán tính
+        },
+        allowTouchMove: false,
+        breakpoints: {
+          // 0: { slidesPerView: 2, spaceBetween: 20 },
+          480: { slidesPerView: 4, spaceBetween: 30 },
+          768: { slidesPerView: 5, spaceBetween: 40 },
+          1024: { slidesPerView: 5, spaceBetween: 40 },
+        },
+      });
+    </script>
+    <script>
+      // entrance animation chạy khi element scroll vào viewport
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

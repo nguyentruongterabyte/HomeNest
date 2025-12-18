@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*  Form trang liên hệ 	*/
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .text-hl {
+        color: rgba(41, 93, 211, 1);
+      }
+
+      input.wpcf7-form-control.wpcf7-text.contact-form-field__name,
+      input.wpcf7-form-control.wpcf7-email.wpcf7-validates-as-required.wpcf7-text.wpcf7-validates-as-email.contact-form-field__email,
+      select.wpcf7-form-control.wpcf7-select.wpcf7-validates-as-required.contact-form-field__service,
+      textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required.contact-form-field__message {
+        border-radius: 0 !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(180, 180, 180, 1) !important;
+        font-family: 500 16px 'Be Vietnam Pro';
+        color: rgba(38, 38, 38, 1);
+        margin-bottom: 40px;
+        padding: 5px;
+      }
+
+      input.wpcf7-form-control.wpcf7-email.wpcf7-validates-as-required.wpcf7-text.wpcf7-validates-as-email.contact-form-field__email {
+      }
+
+      select.wpcf7-form-control.wpcf7-select.wpcf7-validates-as-required.contact-form-field__service {
+      }
+
+      textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required.contact-form-field__message {
+        height: 120px;
+        margin-bottom: 30px;
+      }
+
+      input.wpcf7-form-control.wpcf7-submit.has-spinner.contact-form-submit {
+        background: linear-gradient(91.39deg, #165793 3.66%, #2fd4f9 100%);
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 1);
+        font: 700 16px 'Be Vietnam Pro';
+        padding: 12px 40px;
+        border: none;
+      }
+
+      div#wpcf7-f1935-p1701-o1 {
+        font: 500 12px 'Be Vietnam Pro';
+        color: rgba(157, 157, 157, 1);
+      }
+
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+        textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required.contact-form-field__message {
+          height: 80px;
+        }
+        input.wpcf7-form-control.wpcf7-submit.has-spinner.contact-form-submit {
+          padding: 15px 0;
+          font-size: 14px;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hn__get-in-touch-form">
+      <div class="hn__get-in-touch-input-group">
+        <div class="hn__get-in-touch-input-wrapper">
+          <label for="f_name">Tên của bạn</label>
+          [text* f_name id:f_name class:contact-form-field__name placeholder]
+        </div>
+        <div class="hn__get-in-touch-input-wrapper">
+          <label for="contact_email">Email của bạn</label>
+          [email* contact_email id:contact_email autocomplete:email class:contact-form-field__email placeholder]
+        </div>
+      </div>
+      <div class="hn__get-in-touch-input-wrapper">
+        <label for="service">Chủ đề</label>
+        [select* service id:service class:contact-form-field__service "Quản lý Bất động sản" "Tư vấn & Vận hành hệ thống
+        kỹ thuật" "Bảo dưỡng hệ thống kỹ thuật" "Khác"]
+      </div>
+      <div class="hn__get-in-touch-input-wrapper">
+        <label for="message">Tin nhắn</label>
+        [textarea* message id:message class:contact-form-field__message minlength:1 maxlength:300 placeholder] Viết tin
+        nhắn... [/textarea*]
+      </div>
+      <div class="hn__get-in-touch-submit-btn">[submit class:contact-form-submit "Gửi tin nhắn"]</div>
+    </div>
+  </body>
+</html>
